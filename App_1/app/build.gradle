@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+//apply from: rootProject.file('gradle/function.gradle')
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION as int
+
+    defaultConfig {
+        minSdkVersion MIN_SDK_VERSION as int
+        targetSdkVersion TARGET_SDK_VERSION as int
+        versionCode APP_VERSION_CODE as int
+        versionName APP_VERSION_NAME
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        resConfigs "zh"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        disable 'CheckResult'
+        disable 'SwitchIntDef'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+}
+
+androidExtensions {
+    defaultCacheImplementation = "SPARSE_ARRAY"
+}
+
+dependencies {
+    implementation LIB_SUPPORT_SUPPORT_V4
+    implementation LIB_SUPPORT_COMPAT_V7
+    testImplementation LIB_TEST_JUNIT
+    androidTestImplementation LIB_TEST_RUNNER
+    androidTestImplementation LIB_TEST_ESPRESSO
+    implementation LIB_SUPPORT_RECYCLERVIEW
+    implementation LIB_SUPPORT_CARDVIEW
+    implementation LIB_SUPPORT_DESIGN
+    implementation LIB_ARCH_CORE_RUNTIME
+    implementation LIB_SUPPORT_ANNOTATIONS
+
+    implementation LIB_KOTLIN_COROUTINE
+
+    implementation LIB_GSON
+    implementation LIB_FRESCO
+    implementation LIB_FRESCO_DRAWEE
+    implementation LIB_FRESCO_OKHTTP
+    implementation LIB_FRESCO_GIF
+    implementation LIB_FRESCO_WEBP
+
+    implementation LIB_SUPPORT_MULTIDEX
+    implementation LIB_OKHTTP
+    implementation LIB_RETROFIT
+    implementation LIB_RETROFIT_GSON
+    implementation LIB_ANDROID_KTX
+    implementation LIB_RETRIFIT_COROUTINE
+    implementation LIB_LIFECYCLE_EXTENSIONS
+
+    implementation LIB_KOTLINX_COROUTINES_CORE
+    implementation LIB_KOTLINX_COROUTINES_ANDROID
+    implementation LIB_ROOM_RUNTIME
+    kapt LIB_ROOM_COMPILER
+    implementation LIB_ROOM_KOTLIN
+    implementation LIB_KOTLINX_EXTENSIONS
+
+    // Debug tools
+    debugImplementation LIB_LEAKCANARY
+    debugImplementation LIB_STETHO
+    debugImplementation LIB_STETHO_OKHTTP3
+
+    implementation project(':presentation')
+
+}

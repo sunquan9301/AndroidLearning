@@ -1,0 +1,75 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+    defaultConfig {
+        minSdkVersion MIN_SDK_VERSION as int
+        targetSdkVersion 28
+        versionCode APP_VERSION_CODE as int
+        versionName APP_VERSION_NAME
+
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
+    implementation LIB_FRESCO
+    implementation LIB_FRESCO_DRAWEE
+    implementation LIB_FRESCO_OKHTTP
+    implementation LIB_SUPPORT_RECYCLERVIEW
+    implementation "$LIB_KOTLIN_STDLIB_JDK7_NAME:$KOTLIN_VERSION"
+    implementation LIB_KOTLINX_EXTENSIONS
+
+    implementation LIB_KOTLINX_COROUTINES_CORE
+    implementation LIB_KOTLINX_COROUTINES_ANDROID
+    implementation LIB_ROOM_RUNTIME
+    kapt LIB_ROOM_COMPILER
+    implementation LIB_ROOM_KOTLIN
+    implementation LIB_KOTLINX_EXTENSIONS
+
+    implementation LIB_SUPPORT_MULTIDEX
+    implementation LIB_OKHTTP
+    implementation LIB_RETROFIT
+    implementation LIB_RETROFIT_GSON
+    implementation LIB_ANDROID_KTX
+    implementation LIB_RETRIFIT_COROUTINE
+    implementation LIB_LIFECYCLE_EXTENSIONS
+
+}
