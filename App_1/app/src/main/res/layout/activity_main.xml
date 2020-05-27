@@ -29,6 +29,48 @@
                 app:tv_radius="10dp"
                 app:tv_solid_color="@color/colorPrimary" />
 
+            <com.sun.presentation.ui.LTextView
+                android:id="@+id/tv_lifecycle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:text="Activity Lifecycle"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:tv_radius="10dp"
+                app:tv_solid_color="@color/colorPrimary" />
+
+            <com.sun.presentation.ui.LTextView
+                android:id="@+id/tv_transprant"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:text="Activity Transprant"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:tv_radius="10dp"
+                app:tv_solid_color="@color/colorPrimary" />
+
+            <com.sun.presentation.ui.LTextView
+                android:id="@+id/tv_start_for_result"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:text="Activity Start For Result"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:tv_radius="10dp"
+                app:tv_solid_color="@color/colorPrimary" />
+
         </LinearLayout>
 
 

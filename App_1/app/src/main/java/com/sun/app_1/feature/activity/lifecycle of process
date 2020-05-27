@@ -1,0 +1,11 @@
+1.前台进程
+    - 它正在用户的互动屏幕上运行一个 Activity（其 onResume() 方法已被调用）。
+    - 它有一个 BroadcastReceiver 目前正在运行（其 BroadcastReceiver.onReceive() 方法正在执行）。
+    - 它有一个 Service 目前正在执行其某个回调（Service.onCreate()、Service.onStart() 或 Service.onDestroy()）中的代码。
+2.可见进程
+    - 它正在运行的 Activity 在屏幕上对用户可见，但不在前台（其 onPause() 方法已被调用）。举例来说，如果前台 Activity 显示为一个对话框，而这个对话框允许在其后面看到上一个 Activity，则可能会出现这种情况。
+    - 它有一个 Service 正在通过 Service.startForeground()（要求系统将该服务视为用户知晓或基本上对用户可见的服务）作为前台服务运行。
+3.服务进程
+    startService() background
+4.缓存进程
+    -  Activity 实例（onStop()

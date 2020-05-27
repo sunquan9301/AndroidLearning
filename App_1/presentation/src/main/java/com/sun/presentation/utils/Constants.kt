@@ -8,5 +8,6 @@ package com.sun.presentation.utils
 object Constants {
     object TAG {
         const val TAG_ACTIVITY = "activityMonitor"
+        const val TAG_LIFECYCLE = "lifecycle"
     }
 }

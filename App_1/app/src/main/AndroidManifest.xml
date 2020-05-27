@@ -24,6 +24,18 @@
         <activity
             android:name=".feature.activity.IntentDemoActivity"
             android:screenOrientation="fullSensor"></activity>
+        <activity
+            android:name=".feature.activity.StartForResultDemoActivity"
+            android:screenOrientation="fullSensor"></activity>
+        <activity
+            android:name=".feature.activity.TransprantDemoActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/TransprantTheme"></activity>
+
+        <activity
+            android:name=".feature.activity.LifeCycleDemoActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="fullSensor"></activity>
     </application>
 
 </manifest>
