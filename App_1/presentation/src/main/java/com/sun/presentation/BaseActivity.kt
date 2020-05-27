@@ -46,6 +46,16 @@ abstract class BaseActivity : AppCompatActivity(), KotlinExFunUtil {
         Log.i(Constants.TAG.TAG_ACTIVITY, "${TAG}, onCreate")
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Log.i(Constants.TAG.TAG_ACTIVITY, "${TAG}, onRestoreInstanceState")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        Log.i(Constants.TAG.TAG_ACTIVITY, "${TAG}, onSaveInstanceState")
+    }
+
     override fun onResume() {
         super.onResume()
         Log.i(Constants.TAG.TAG_ACTIVITY, "${TAG}, onResume")
