@@ -17,13 +17,13 @@
             android:orientation="vertical">
 
             <com.sun.presentation.ui.LTextView
-                android:id="@+id/tv_intent"
+                android:id="@+id/action_view"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:gravity="center"
-                android:text="Activity Intent"
+                android:text="action_view"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:tv_radius="10dp"

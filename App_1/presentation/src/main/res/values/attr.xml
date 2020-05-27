@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="app_primary_color" format="color"/> <!-- topbar -->
+    <attr name="app_content_bg_color" format="color"/> <!-- content-->
+    <declare-styleable name="NineGridImageLayout">
+        <attr name="sapcing" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="XLine">
+        <attr name="line_l_margin" format="dimension"/>
+        <attr name="line_r_margin" format="dimension"/>
+        <attr name="line_color" format="reference|color"/>
+        <attr name="line_height" format="dimension"/>
+        <attr name="line_width" format="dimension"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="LTextView">
+        <attr name="tv_stroke" format="dimension"/>
+        <attr name="tv_solid_color" format="reference|color"/>
+        <attr name="tv_stroke_color" format="reference|color"/>
+        <attr name="tv_shape">
+            <enum name="rect" value="0"/>
+            <enum name="oval" value="1"/>
+        </attr>
+        <attr name="tv_radius" format="dimension"/>
+        <attr name="tv_bold" format="boolean"/>
+        <attr name="tv_font" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="XTitleBar">
+        <attr name="title" format="string"/>
+        <attr name="rightViewText" format="string"/>
+        <attr name="showRightView" format="boolean"/>
+        <attr name="rightTextSize" format="dimension"/>
+        <attr name="rightTextColor" format="reference|color"/>
+        <attr name="rightTextDrawable" format="reference"/>
+        <attr name="iconTv" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="Rotate3dAnimation">
+        <!-- 旋转类型   x轴 y轴  z轴 -->
+        <attr name="rollType" format="enum">
+            <enum name="x" value="0"/>
+            <enum name="y" value="1"/>
+            <enum name="z" value="2"/>
+        </attr>
+        <!-- 初始角度 -->
+        <attr name="fromDeg" format="float"/>
+        <!-- 目标角度 -->
+        <attr name="toDeg" format="float"/>
+        <!-- 旋转点 -->
+        <attr name="pivotX" format="fraction"/>
+        <attr name="pivotY" format="fraction"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleIndicator">
+        <attr name="ci_radius" format="dimension"/>
+        <attr name="ci_margin" format="dimension"/>
+        <attr name="ci_background" format="color|integer"/>
+        <attr name="ci_selected_background" format="color|integer"/>
+        <attr name="ci_gravity">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+        <attr name="ci_mode">
+            <enum name="inside" value="0"/>
+            <enum name="outside" value="1"/>
+            <enum name="solo" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="KeepTimeStyle">
+        <attr name="theme_color" format="reference|color"/>
+        <attr name="is_reverse" format="boolean"/>
+    </declare-styleable>
+</resources>
