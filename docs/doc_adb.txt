@@ -1,0 +1,27 @@
+1.adb devices    
+2.adb devices -l  	
+3.add kill-server		
+4.adb connect 
+5.adb install -r path.apk  安装apk
+6.adb pull sdcard/emulator/0/Android/data/com.sun.xxx/files/xxx.jpg  把sdcard里面的一张图片pull到当前电脑目录上
+7.adb push ~/User/sun/path/1.txt sdcard/..../files/log/ 把电脑上的文件，push到手机里面
+8.adb shell 进入手机模式可通过ls cd 进入sdcard相应的目录并进行操作
+9.adb help
+10.adb uninstall com.sun.pacakagename
+
+11.adb shell screencap /sdcard/screen.png 截屏
+12.adb shell am start -a android.intent.action.VIEW 打开对应intent
+13.adb shell am start -n com.sun.app_1/.MainActivity
+14.adb shell am force-stop com.sun.app_1 停止所有相关进程
+15.adb shell am kill-all
+16.adb shell am set-debug-app -w com.sun.app_1 设置调试应用，-w启动等待app
+17.adb shell am clear-debug-app
+
+18.adb shell pm clear com.sun.packagename 清除数据缓存
+19.adb shell pm list packages 列出所有包名
+20.adb shell pm list packages sun  根据sun匹配
+21.adb shell pm list permission-groups 
+22.adb shell pm list permissions ${group} 
+23.adb shell pm list features
+
+adb shell screenrecord /sdcard/demo.mp4
