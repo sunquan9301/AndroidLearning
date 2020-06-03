@@ -1,0 +1,18 @@
+1   ./gradlew -q tasks //列出所有的task
+2   ./gradlew tasks -all
+3   ./gradlew -b test.gradle -q helloworld //执行特定脚本下的特定task
+4   -Dmyprop=myvalue  //系统参数选项
+5   -Pmyprop=myvalue  //构建脚本可用参数选项
+6   -i日志选项 将日志级别改变到INFO选项 输出更多信息
+7   -s  打出栈信息
+8   -q  减少出错信息打印
+9   ./gradew tasks 显示所有可运行到task
+10  ./gradlew properties : 显示项目中所有可用的属性
+11 守护进程 ./gradlew taskName --daemon
+           ./gradlew taskName --no-daemon
+           ./gradlew --stop
+12.--refresh-dependencies 手动刷新缓存
+
+
+重要常用命令
+1  ./gradlew app:installDebug --offline --daemon
