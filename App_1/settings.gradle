@@ -1,3 +1,4 @@
 rootProject.name='App_1'
 include ':app'
 include ':presentation'
+include ':gradledemo'

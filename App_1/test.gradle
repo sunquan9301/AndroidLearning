@@ -1,0 +1,22 @@
+//./gradlew -q gradledemo:helloworld 执行
+task helloworld << {
+    println "hello world!"
+}
+
+
+//定制化设置原代码目录
+sourceSets.main {
+    jni.srcDirs = []
+    jniLibs.srcDir "src/main/libs"
+}
+
+//build 输出后的目录
+buildDir = 'out'
+
+project.ext.myProp = 'myValue' // 只在初始声明扩展属性时需要使用ext命名空间
+ext {
+    someOtherProp = 123
+}
+assert myProp == 'myValue'
+println project.someOtherProp
+ext.someOtherProp = 567
