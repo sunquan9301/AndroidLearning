@@ -14,7 +14,6 @@ import com.scott.opengl.util.Geometry;
 
 import java.util.List;
 
-
 public class Mallet {
     private static final int POSITION_COMPONENT_COUNT = 3;
 
