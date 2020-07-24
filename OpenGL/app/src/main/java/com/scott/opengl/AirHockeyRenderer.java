@@ -1,28 +1,31 @@
 package com.scott.opengl;
 
+
+import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
+import static android.opengl.GLES20.glClear;
+import static android.opengl.GLES20.glClearColor;
+import static android.opengl.GLES20.glViewport;
+import static android.opengl.Matrix.multiplyMM;
+import static android.opengl.Matrix.rotateM;
+import static android.opengl.Matrix.setIdentityM;
+import static android.opengl.Matrix.setLookAtM;
+import static android.opengl.Matrix.translateM;
+
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
+
 import android.content.Context;
-import android.opengl.GLSurfaceView;
-import android.opengl.Matrix;
-import android.util.Log;
+import android.opengl.GLSurfaceView.Renderer;
 
 import com.scott.opengl.objects.Mallet;
 import com.scott.opengl.objects.Puck;
 import com.scott.opengl.objects.Table;
-import com.scott.opengl.objects.TriAngle;
 import com.scott.opengl.programs.ColorShaderProgram;
 import com.scott.opengl.programs.TextureShaderProgram;
 import com.scott.opengl.util.MatrixHelper;
 import com.scott.opengl.util.TextureHelper;
 
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
-
-import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
-import static android.opengl.GLES20.glClear;
-import static android.opengl.GLES20.glViewport;
-import static android.opengl.Matrix.setLookAtM;
-
-public class AirHockeyRenderer implements GLSurfaceView.Renderer {
+public class AirHockeyRenderer implements Renderer {
     private final Context context;
 
     private final float[] projectionMatrix = new float[16];
@@ -31,30 +34,26 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
     private final float[] viewProjectionMatrix = new float[16];
     private final float[] modelViewProjectionMatrix = new float[16];
 
-
     private Table table;
     private Mallet mallet;
     private Puck puck;
-    private TriAngle triAngle;
 
     private TextureShaderProgram textureProgram;
     private ColorShaderProgram colorProgram;
 
     private int texture;
 
-
     public AirHockeyRenderer(Context context) {
         this.context = context;
     }
 
     @Override
-    public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-        Log.i("sun_opengl", "onSurfaceCreated");
+    public void onSurfaceCreated(GL10 glUnused, EGLConfig config) {
+        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
         table = new Table();
         mallet = new Mallet(0.08f, 0.15f, 32);
         puck = new Puck(0.06f, 0.02f, 32);
-
-//        triAngle = new TriAngle();
 
         textureProgram = new TextureShaderProgram(context);
         colorProgram = new ColorShaderProgram(context);
@@ -63,33 +62,23 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
     }
 
     @Override
-    public void onSurfaceChanged(GL10 gl, int width, int height) {
-        Log.i("sun_opengl", "onSurfaceChanged,w = " + width + ",height = " + height);
+    public void onSurfaceChanged(GL10 glUnused, int width, int height) {
+        // Set the OpenGL viewport to fill the entire surface.
         glViewport(0, 0, width, height);
         MatrixHelper.perspectiveM(projectionMatrix, 45, (float) width
                 / (float) height, 1f, 10f);
-        setLookAtM(viewMatrix, 0, 0f, 1.2f, 2.2f, 0f, 0f, 0f, 0f, 1f, 0f);
-
-//        MatrixHelper.perspectiveM(projectionMatrix, 120, (float) width
-//                / (float) height, 0f, 10f);
-//
-//        Matrix.setIdentityM(modelMatrix, 0);
-//
-//        Matrix.translateM(modelMatrix, 0, 0f, 0f, -1f);
-////        Matrix.rotateM(modelMatrix, 0, -40f, 1f, 0f, 0f);
-//
-//        final float[] temp = new float[16];
-//        Matrix.multiplyMM(temp, 0, projectionMatrix, 0, modelMatrix, 0);
-//        System.arraycopy(temp, 0, projectionMatrix, 0, temp.length);
+        //z轴是反方向，因此0.1f表示从 z near往后0.1的距离
+        setLookAtM(viewMatrix, 0, 1f, 1f, 2f, 0f, 0f, 0f, 0f, 1f, 0f);
     }
 
-    @Override
-    public void onDrawFrame(GL10 gl) {
 
+    @Override
+    public void onDrawFrame(GL10 glUnused) {
+        // Clear the rendering surface.
         glClear(GL_COLOR_BUFFER_BIT);
 
         // Multiply the view and projection matrices together.
-        Matrix.multiplyMM(viewProjectionMatrix, 0, projectionMatrix, 0, viewMatrix, 0);
+        multiplyMM(viewProjectionMatrix, 0, projectionMatrix, 0, viewMatrix, 0);
 
         // Draw the table.
         positionTableInScene();
@@ -122,17 +111,17 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
     private void positionTableInScene() {
         // The table is defined in terms of X & Y coordinates, so we rotate it
         // 90 degrees to lie flat on the XZ plane.
-        Matrix.setIdentityM(modelMatrix, 0);
-        Matrix.rotateM(modelMatrix, 0, -90f, 1f, 0f, 0f);
-        Matrix.multiplyMM(modelViewProjectionMatrix, 0, viewProjectionMatrix,
+        setIdentityM(modelMatrix, 0);
+        rotateM(modelMatrix, 0, -90f, 1f, 0f, 0f);
+        multiplyMM(modelViewProjectionMatrix, 0, viewProjectionMatrix,
                 0, modelMatrix, 0);
     }
 
     // The mallets and the puck are positioned on the same plane as the table.
     private void positionObjectInScene(float x, float y, float z) {
-        Matrix.setIdentityM(modelMatrix, 0);
-        Matrix.translateM(modelMatrix, 0, x, y, z);
-        Matrix.multiplyMM(modelViewProjectionMatrix, 0, viewProjectionMatrix,
+        setIdentityM(modelMatrix, 0);
+        translateM(modelMatrix, 0, x, y, z);
+        multiplyMM(modelViewProjectionMatrix, 0, viewProjectionMatrix,
                 0, modelMatrix, 0);
     }
 }
