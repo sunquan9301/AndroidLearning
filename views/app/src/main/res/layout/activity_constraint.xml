@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/tv_1"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_green_light"
+        android:gravity="center"
+        android:text="tv1"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        app:layout_goneMarginStart="10dp"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:background="@android:color/holo_green_light"
+        android:gravity="center"
+        android:text="tv2"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toRightOf="@id/tv_1"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_1"
+        />
+
+    <TextView
+        android:layout_marginStart="10dp"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:background="@android:color/holo_green_light"
+        android:gravity="center"
+        android:text="tv3"
+        android:textColor="@android:color/white"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="120"
+        app:layout_constraintCircleRadius="200dp"
+        app:layout_constraintLeft_toRightOf="@id/tv_1"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_1"
+        />
+
+    <TextView
+        android:layout_marginTop="250dp"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:background="@android:color/holo_green_light"
+        android:gravity="center"
+        android:text="tv4"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintRight_toRightOf="parent"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
