@@ -35,11 +35,11 @@ public class TriAngle {
                 colorProgram.getPositionAttributeLocation(),
                 POSITION_COMPONENT_COUNT,
                 STRIDE);
-        vertexArray.setVertexAttribPointer(
-                POSITION_COMPONENT_COUNT,
-                colorProgram.getColorAttributeLocation(),
-                COLOR_COMPONENT_COUNT,
-                STRIDE);
+//        vertexArray.setVertexAttribPointer(
+//                POSITION_COMPONENT_COUNT,
+//                colorProgram.getColorAttributeLocation(),
+//                COLOR_COMPONENT_COUNT,
+//                STRIDE);
     }
     public void draw() {
         glDrawArrays(GL_TRIANGLES, 0, 3);
