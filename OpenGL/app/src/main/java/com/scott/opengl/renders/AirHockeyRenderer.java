@@ -1,4 +1,4 @@
-package com.scott.opengl;
+package com.scott.opengl.renders;
 
 
 import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
@@ -18,6 +18,7 @@ import android.content.Context;
 import android.opengl.GLSurfaceView.Renderer;
 import android.opengl.Matrix;
 
+import com.scott.opengl.R;
 import com.scott.opengl.objects.Mallet;
 import com.scott.opengl.objects.Puck;
 import com.scott.opengl.objects.Table;
