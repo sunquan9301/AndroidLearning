@@ -8,10 +8,11 @@
  ***/
 package com.scott.opengl.data;
 
+import com.scott.opengl.util.Constants;
+
 import static android.opengl.GLES20.GL_FLOAT;
 import static android.opengl.GLES20.glEnableVertexAttribArray;
 import static android.opengl.GLES20.glVertexAttribPointer;
-import static com.scott.opengl.Constants.BYTES_PER_FLOAT;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -22,7 +23,7 @@ public class VertexArray {
 
     public VertexArray(float[] vertexData) {
         floatBuffer = ByteBuffer
-                .allocateDirect(vertexData.length * BYTES_PER_FLOAT)
+                .allocateDirect(vertexData.length * Constants.BYTES_PER_FLOAT)
                 .order(ByteOrder.nativeOrder())
                 .asFloatBuffer()
                 .put(vertexData);
@@ -35,6 +36,16 @@ public class VertexArray {
                 GL_FLOAT, false, stride, floatBuffer);
         glEnableVertexAttribArray(attributeLocation);
 
+        floatBuffer.position(0);
+    }
+
+    /**
+     * Updates the float buffer with the specified vertex data, assuming that
+     * the vertex data and the float buffer are the same size.
+     */
+    public void updateBuffer(float[] vertexData, int start, int count) {
+        floatBuffer.position(start);
+        floatBuffer.put(vertexData, start, count);
         floatBuffer.position(0);
     }
 }

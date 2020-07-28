@@ -1,9 +1,10 @@
-package com.scott.opengl;
+package com.scott.opengl.renders;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.util.Log;
 
+import com.scott.opengl.R;
 import com.scott.opengl.util.LoggerConfig;
 import com.scott.opengl.util.ShaderHelper;
 import com.scott.opengl.util.TextResourceReader;

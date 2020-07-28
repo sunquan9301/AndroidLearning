@@ -10,16 +10,16 @@ package com.scott.opengl.objects;
 
 import com.scott.opengl.data.VertexArray;
 import com.scott.opengl.programs.TextureShaderProgram;
+import com.scott.opengl.util.Constants;
 
 import static android.opengl.GLES20.GL_TRIANGLE_FAN;
 import static android.opengl.GLES20.glDrawArrays;
-import static com.scott.opengl.Constants.BYTES_PER_FLOAT;
 
 public class Table {            
     private static final int POSITION_COMPONENT_COUNT = 2;
     private static final int TEXTURE_COORDINATES_COMPONENT_COUNT = 2;
     private static final int STRIDE = (POSITION_COMPONENT_COUNT 
-        + TEXTURE_COORDINATES_COMPONENT_COUNT) * BYTES_PER_FLOAT;
+        + TEXTURE_COORDINATES_COMPONENT_COUNT) * Constants.BYTES_PER_FLOAT;
     
     private static final float[] VERTEX_DATA = {
         // Order of coordinates: X, Y, S, T
