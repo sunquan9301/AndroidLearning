@@ -114,9 +114,9 @@ public class TriAngleRenderer implements GLSurfaceView.Renderer {
         Log.i("sun_opengl", "onSurfaceCreated");
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         String vertexShaderSource = TextResourceReader
-                .readTextFileFromResource(context, R.raw.simple_vertex_shader);
+                .readTextFileFromResource(context, R.raw.triangle_vertex_shader);
         String fragmentShaderSource = TextResourceReader
-                .readTextFileFromResource(context, R.raw.simple_fragment_shader);
+                .readTextFileFromResource(context, R.raw.triangle_fragment_shader);
 
         int vertexShader = ShaderHelper.compileVertexShader(vertexShaderSource);
         int fragmentShader = ShaderHelper.compileFragmentShader(fragmentShaderSource);
