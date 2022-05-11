@@ -7,7 +7,6 @@ import static android.opengl.GLES20.glClear;
 import static android.opengl.GLES20.glClearColor;
 import static android.opengl.GLES20.glDrawArrays;
 import static android.opengl.GLES20.glEnableVertexAttribArray;
-import static android.opengl.GLES20.glGetAttribLocation;
 import static android.opengl.GLES20.glUseProgram;
 import static android.opengl.GLES20.glVertexAttribPointer;
 
@@ -19,7 +18,7 @@ import com.scott.opengl.util.GLHelper;
 
 import java.nio.FloatBuffer;
 
-public class DefaultShaderProgram implements IShaderProgram {
+public class DefaultShaderProgram2_0 implements IShaderProgram {
     private FloatBuffer vertexData;
     private int program;
     private int aPositionLocation;

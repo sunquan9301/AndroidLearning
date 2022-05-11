@@ -4,7 +4,7 @@ import static android.opengl.GLES20.glViewport;
 
 import android.opengl.GLSurfaceView;
 
-import com.scott.opengl.programs.DefaultShaderProgram;
+import com.scott.opengl.programs.DefaultShaderProgramES3_0;
 import com.scott.opengl.programs.IShaderProgram;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -13,7 +13,7 @@ import javax.microedition.khronos.opengles.GL10;
 public class BaseRender implements GLSurfaceView.Renderer {
     public IShaderProgram iShaderProgram;
     public BaseRender() {
-        iShaderProgram = new DefaultShaderProgram();
+        iShaderProgram = new DefaultShaderProgramES3_0();
         iShaderProgram.initAttributions();
     }
 

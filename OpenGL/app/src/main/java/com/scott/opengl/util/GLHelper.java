@@ -9,6 +9,7 @@
 package com.scott.opengl.util;
 
 import android.content.Context;
+import android.opengl.GLES30;
 import android.util.Log;
 
 import static android.opengl.GLES20.GL_COMPILE_STATUS;
@@ -121,7 +122,7 @@ public class GLHelper {
         public static int linkProgram(int vertexShaderId, int fragmentShaderId) {
 
             // Create a new program object.
-            final int programObjectId = glCreateProgram();
+            final int programObjectId = GLES30.glCreateProgram();
 
             if (programObjectId == 0) {
                 if (LoggerConfig.ON) {
@@ -132,17 +133,17 @@ public class GLHelper {
             }
 
             // Attach the vertex shader to the program.
-            glAttachShader(programObjectId, vertexShaderId);
+            GLES30.glAttachShader(programObjectId, vertexShaderId);
 
             // Attach the fragment shader to the program.
-            glAttachShader(programObjectId, fragmentShaderId);
+            GLES30.glAttachShader(programObjectId, fragmentShaderId);
 
             // Link the two shaders together into a program.
-            glLinkProgram(programObjectId);
+            GLES30.glLinkProgram(programObjectId);
 
             // Get the link status.
             final int[] linkStatus = new int[1];
-            glGetProgramiv(programObjectId, GL_LINK_STATUS,
+            GLES30.glGetProgramiv(programObjectId, GL_LINK_STATUS,
                     linkStatus, 0);
 
             if (LoggerConfig.ON) {
@@ -156,7 +157,7 @@ public class GLHelper {
             // Verify the link status.
             if (linkStatus[0] == 0) {
                 // If it failed, delete the program object.
-                glDeleteProgram(programObjectId);
+                GLES30.glDeleteProgram(programObjectId);
 
                 if (LoggerConfig.ON) {
                     Log.w(TAG, "Linking of program failed.");
