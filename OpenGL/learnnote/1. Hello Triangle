@@ -1,0 +1,28 @@
+
+1.OpenGL把3D坐标转变为屏幕的2D像素。by 图形渲染管线（Graphics Pipeline）
+    1.3D坐标 => 2D坐标，
+    2. 2D坐标 => 有颜色的像素。
+
+2. 2D坐标 vs 2D像素
+    1. 2D坐标精确表示一个点在2D空间中的位置；
+    2. 2D像素是这个点的近似值，受屏幕/窗口分辨率的限制。
+
+3. 流程
+    1. 顶点数据：vertex data[]
+    2. 顶点着色器：vertex shader;转换坐标系
+    3、图元装配：Primitive Assemblely, 顶点着色器的输出的所有顶点作为输入。并指定图元的形状如点、三角形、线GL_POINTS、GL_TRIANGLES、GL_LINE_STRIP；
+    4、几何着色器：Geometry Shader, 可以通过产生新顶点构造出新的图元来生成其他形状。
+    5、光栅化：Rasterization Stage，映射为最终屏幕上像素，生成供片段着色器(Fragment Shader)使用的片段(Fragment)。
+        5.1: OpenGL中的一个片段是OpenGL渲染一个像素所需的所有数据
+    6、片段着色器：Fragment Shader 计算片段的颜色
+    7、Blending
+
+3. 顶点缓冲对象 Vertex Buffer Objects (com.scott.opengl.data.VertexBuffer)
+    1、顶点着色器。在GPU上创建内存用于储存顶点数据，并指定其如何发送给显卡。
+    2、VBO管理这个内存；可以一次性的发送一大批数据到显卡上
+    3、顶点缓冲对象的缓冲类型是：GL_ARRAY_BUFFER
+    4、如何管理：
+        GL_STATIC_DRAW ：数据不会或几乎不会改变。
+        GL_DYNAMIC_DRAW：数据会被改变很多。
+        GL_STREAM_DRAW ：数据每次绘制时都会改变。
+

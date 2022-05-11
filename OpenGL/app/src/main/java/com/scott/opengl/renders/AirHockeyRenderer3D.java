@@ -8,7 +8,7 @@ import android.util.Log;
 import com.scott.opengl.R;
 import com.scott.opengl.util.LoggerConfig;
 import com.scott.opengl.util.MatrixHelper;
-import com.scott.opengl.util.ShaderHelper;
+import com.scott.opengl.util.GLHelper;
 import com.scott.opengl.util.TextResourceReader;
 
 import java.nio.ByteBuffer;
@@ -143,13 +143,13 @@ public class AirHockeyRenderer3D implements GLSurfaceView.Renderer {
         String fragmentShaderSource = TextResourceReader
                 .readTextFileFromResource(context, R.raw.simple_fragment_shader_ortho);
 
-        int vertexShader = ShaderHelper.compileVertexShader(vertexShaderSource);
-        int fragmentShader = ShaderHelper.compileFragmentShader(fragmentShaderSource);
+        int vertexShader = GLHelper.Shader.compileVertexShader(vertexShaderSource);
+        int fragmentShader = GLHelper.Shader.compileFragmentShader(fragmentShaderSource);
 
-        program = ShaderHelper.linkProgram(vertexShader, fragmentShader);
+        program = GLHelper.Program.linkProgram(vertexShader, fragmentShader);
 
         if (LoggerConfig.ON) {
-            ShaderHelper.validateProgram(program);
+            GLHelper.Program.validateProgram(program);
         }
 
         glUseProgram(program);

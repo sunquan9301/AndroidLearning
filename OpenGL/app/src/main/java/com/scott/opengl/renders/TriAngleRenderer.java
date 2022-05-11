@@ -4,9 +4,10 @@ import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.util.Log;
 
+import com.scott.opengl.OpenGLApplication;
 import com.scott.opengl.R;
 import com.scott.opengl.util.LoggerConfig;
-import com.scott.opengl.util.ShaderHelper;
+import com.scott.opengl.util.GLHelper;
 import com.scott.opengl.util.TextResourceReader;
 
 import java.nio.ByteBuffer;
@@ -113,26 +114,12 @@ public class TriAngleRenderer implements GLSurfaceView.Renderer {
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         Log.i("sun_opengl", "onSurfaceCreated");
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        String vertexShaderSource = TextResourceReader
-                .readTextFileFromResource(context, R.raw.triangle_vertex_shader);
-        String fragmentShaderSource = TextResourceReader
-                .readTextFileFromResource(context, R.raw.triangle_fragment_shader);
 
-        int vertexShader = ShaderHelper.compileVertexShader(vertexShaderSource);
-        int fragmentShader = ShaderHelper.compileFragmentShader(fragmentShaderSource);
-
-        program = ShaderHelper.linkProgram(vertexShader, fragmentShader);
-
-        if (LoggerConfig.ON) {
-            ShaderHelper.validateProgram(program);
-        }
-
+        program = GLHelper.Program.buildProgram(OpenGLApplication.appContext,R.raw.triangle_vertex_shader,R.raw.triangle_fragment_shader);
         glUseProgram(program);
 
         aColorLocation = glGetAttribLocation(program, A_COLOR);
-
         aPositionLocation = glGetAttribLocation(program, A_POSITION);
-
         // Bind our data, specified by the variable vertexData, to the vertex
         // attribute at location A_POSITION_LOCATION.
         vertexData.position(0);

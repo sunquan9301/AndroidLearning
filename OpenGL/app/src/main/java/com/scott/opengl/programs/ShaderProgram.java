@@ -10,7 +10,7 @@ package com.scott.opengl.programs;
 
 import android.content.Context;
 
-import com.scott.opengl.util.ShaderHelper;
+import com.scott.opengl.util.GLHelper;
 import com.scott.opengl.util.TextResourceReader;
 
 import static android.opengl.GLES20.glUseProgram;
@@ -37,7 +37,7 @@ abstract class ShaderProgram {
     protected ShaderProgram(Context context, int vertexShaderResourceId,
         int fragmentShaderResourceId) {
         // Compile the shaders and link the program.
-        program = ShaderHelper.buildProgram(
+        program = GLHelper.Program.buildProgram(
             TextResourceReader
                 .readTextFileFromResource(context, vertexShaderResourceId),
             TextResourceReader
