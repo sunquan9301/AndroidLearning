@@ -6,9 +6,7 @@ import android.util.Log;
 
 import com.scott.opengl.OpenGLApplication;
 import com.scott.opengl.R;
-import com.scott.opengl.util.LoggerConfig;
-import com.scott.opengl.util.GLHelper;
-import com.scott.opengl.util.TextResourceReader;
+import com.scott.basic.utils.GLHelper;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

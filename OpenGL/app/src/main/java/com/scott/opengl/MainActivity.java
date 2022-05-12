@@ -1,22 +1,13 @@
 package com.scott.opengl;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.pm.ConfigurationInfo;
 import android.opengl.GLSurfaceView;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.scott.opengl.renders.AirHockeyRenderer;
-import com.scott.opengl.renders.BaseRender;
-import com.scott.opengl.renders.TriAngleRenderer;
+import com.scott.basic.renders.BaseRender;
+import com.scott.opengl.programs.DefaultShaderProgramES3_0;
 
 public class MainActivity extends AppCompatActivity {
     private GLSurfaceView glSurfaceView;
@@ -30,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Request an OpenGL ES 2.0 compatible context.
         glSurfaceView.setEGLContextClientVersion(3);
-
         // Assign our renderer.
-        glSurfaceView.setRenderer(new BaseRender());
+        glSurfaceView.setRenderer(new BaseRender(new DefaultShaderProgramES3_0()));
+        glSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         rendererSet = true;
 
 

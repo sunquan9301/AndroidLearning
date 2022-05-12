@@ -10,8 +10,8 @@ package com.scott.opengl.programs;
 
 import android.content.Context;
 
-import com.scott.opengl.util.GLHelper;
-import com.scott.opengl.util.TextResourceReader;
+import com.scott.basic.utils.GLHelper;
+import com.scott.basic.utils.TextResourceReader;
 
 import static android.opengl.GLES20.glUseProgram;
 

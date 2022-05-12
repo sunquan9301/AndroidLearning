@@ -12,9 +12,10 @@ import static android.opengl.GLES20.glVertexAttribPointer;
 
 import android.util.Log;
 
+import com.scott.basic.shaders.IShaderProgram;
 import com.scott.opengl.OpenGLApplication;
 import com.scott.opengl.R;
-import com.scott.opengl.util.GLHelper;
+import com.scott.basic.utils.GLHelper;
 
 import java.nio.FloatBuffer;
 

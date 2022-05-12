@@ -5,9 +5,8 @@ import android.opengl.GLSurfaceView;
 import android.util.Log;
 
 import com.scott.opengl.R;
-import com.scott.opengl.util.LoggerConfig;
-import com.scott.opengl.util.GLHelper;
-import com.scott.opengl.util.TextResourceReader;
+import com.scott.basic.utils.GLHelper;
+import com.scott.basic.utils.TextResourceReader;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -136,9 +135,7 @@ public class AirHockeyColorAttributeRenderer implements GLSurfaceView.Renderer {
 
         program = GLHelper.Program.linkProgram(vertexShader, fragmentShader);
 
-        if (LoggerConfig.ON) {
-            GLHelper.Program.validateProgram(program);
-        }
+        GLHelper.Program.validateProgram(program);
 
         glUseProgram(program);
 

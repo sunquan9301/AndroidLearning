@@ -1,0 +1,84 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+                version "3.10.2"
+            }
+        }
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            externalNativeBuild {
+                cmake {
+                    arguments '-DANDROID_PLATFORM=android-21', '-DANDROID_TOOLCHAIN=clang',
+                            '-DANDROID_ARM_NEON=TRUE', '-DANDROID_STL=c++_static'
+                    cFlags '-O3', '-DGL_GLEXT_PROTOTYPES', '-DEGL_EGLEXT_PROTOTYPES', '-fsigned-char', '-Wformat','-mfpu=neon', '-mfloat-abi=softfp -frtti' // full optimization, char data type is signed
+                    // 编译优化，设置函式是否能被 inline 的伪指令长度
+                    cppFlags '-O3', '-fexceptions', '-fsigned-char',
+                            "-frtti -std=c++11", '-Wformat'
+                }
+            }
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            externalNativeBuild {
+                cmake {
+                    arguments '-DANDROID_PLATFORM=android-21', '-DANDROID_TOOLCHAIN=clang',
+                            '-DANDROID_ARM_NEON=TRUE', '-DANDROID_STL=c++_static'
+                    cFlags '-O3', '-DGL_GLEXT_PROTOTYPES', '-DEGL_EGLEXT_PROTOTYPES', '-fsigned-char', '-Wformat','-mfpu=neon', '-mfloat-abi=softfp -frtti'
+                    // full optimization, char data type is signed
+                    // 编译优化，设置函式是否能被 inline 的伪指令长度
+                    cppFlags '-O3', '-fexceptions', '-fsigned-char',
+                            "-frtti -std=c++11", '-Wformat'
+                }
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.70"
+    api "androidx.core:core-ktx:1.2.0"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+}

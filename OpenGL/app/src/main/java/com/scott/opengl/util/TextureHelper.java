@@ -32,9 +32,7 @@ public class TextureHelper {
         glGenTextures(1, textureObjectIds, 0);
 
         if (textureObjectIds[0] == 0) {
-            if (LoggerConfig.ON) {
-                Log.w(TAG, "Could not generate a new OpenGL texture object.");
-            }
+            Log.w(TAG, "Could not generate a new OpenGL texture object.");
 
             return 0;
         }
@@ -47,10 +45,8 @@ public class TextureHelper {
             context.getResources(), resourceId, options);
 
         if (bitmap == null) {
-            if (LoggerConfig.ON) {
-                Log.w(TAG, "Resource ID " + resourceId
+            Log.w(TAG, "Resource ID " + resourceId
                     + " could not be decoded.");
-            }
 
             glDeleteTextures(1, textureObjectIds, 0);
 
@@ -105,9 +101,7 @@ public class TextureHelper {
         glGenTextures(1, textureObjectIds, 0);
 
         if (textureObjectIds[0] == 0) {
-            if (LoggerConfig.ON) {
-                Log.w(TAG, "Could not generate a new OpenGL texture object.");
-            }
+            Log.w(TAG, "Could not generate a new OpenGL texture object.");
             return 0;
         }
         final BitmapFactory.Options options = new BitmapFactory.Options();
@@ -119,10 +113,8 @@ public class TextureHelper {
                             cubeResources[i], options);
 
             if (cubeBitmaps[i] == null) {
-                if (LoggerConfig.ON) {
-                    Log.w(TAG, "Resource ID " + cubeResources[i]
-                            + " could not be decoded.");
-                }
+                Log.w(TAG, "Resource ID " + cubeResources[i]
+                        + " could not be decoded.");
                 glDeleteTextures(1, textureObjectIds, 0);
                 return 0;
             }
