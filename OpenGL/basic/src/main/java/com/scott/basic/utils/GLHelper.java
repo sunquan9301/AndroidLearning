@@ -30,7 +30,7 @@ import static android.opengl.GLES20.glValidateProgram;
 import androidx.annotation.NonNull;
 import androidx.annotation.RawRes;
 
-import com.scott.basic.shaders.IShaderProgram;
+import com.scott.basic.shaders.IRender;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -42,7 +42,7 @@ public class GLHelper {
     public static class Vertex {
         public static FloatBuffer allocate(@NonNull float[] data) {
             FloatBuffer vertexData = ByteBuffer
-                    .allocateDirect(data.length * IShaderProgram.BYTES_PER_FLOAT)
+                    .allocateDirect(data.length * IRender.BYTES_PER_FLOAT)
                     .order(ByteOrder.nativeOrder())
                     .asFloatBuffer();
 

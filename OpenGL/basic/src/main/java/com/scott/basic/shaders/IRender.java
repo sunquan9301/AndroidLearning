@@ -1,6 +1,6 @@
 package com.scott.basic.shaders;
 
-public interface IShaderProgram {
+public interface IRender {
     String A_COLOR = "a_Color";
     String A_POSITION = "a_Position";
     int POSITION_COMPONENT_COUNT = 2;
@@ -8,9 +8,10 @@ public interface IShaderProgram {
     int BYTES_PER_FLOAT = 4;
     int STRIDE = (POSITION_COMPONENT_COUNT + COLOR_COMPONENT_COUNT) * BYTES_PER_FLOAT;
 
-    void initAttributions();
+    void init();
 
-    void bindShaderSource();
+    void onSurfaceCreated();
+    void onSurfaceChanged(int width, int height);
 
-    void onDraw();
+    void onDrawFrame();
 }

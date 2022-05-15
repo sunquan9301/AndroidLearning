@@ -17,21 +17,21 @@ import static android.opengl.GLES30.GL_TRIANGLES;
 import android.opengl.GLES30;
 import android.util.Log;
 
-import com.scott.basic.shaders.IShaderProgram;
+import com.scott.basic.shaders.IRender;
 import com.scott.opengl.OpenGLApplication;
 import com.scott.opengl.R;
 import com.scott.basic.utils.GLHelper;
 
 import java.nio.FloatBuffer;
 
-public class DefaultShaderProgramES3_0 implements IShaderProgram {
+public class DefaultRenderES3_0 implements IRender {
     private FloatBuffer vertexData;
     private int program;
     private int aPositionLocation;
     private int aColorLocation;
 
     @Override
-    public void initAttributions() {
+    public void init() {
         float[] tableVerticesWithTriangles = {
                 // Order of coordinates: X, Y, R, G, B
 
@@ -43,7 +43,7 @@ public class DefaultShaderProgramES3_0 implements IShaderProgram {
     }
 
     @Override
-    public void bindShaderSource() {
+    public void onSurfaceCreated() {
         Log.i("sun_opengl", "onSurfaceCreated");
         GLES30.glClearColor(0.5f, 0.0f, 1.0f, 0.0f);
 
@@ -68,7 +68,12 @@ public class DefaultShaderProgramES3_0 implements IShaderProgram {
     }
 
     @Override
-    public void onDraw() {
+    public void onSurfaceChanged(int width, int height) {
+        GLES30.glViewport(0,0,width,height);
+    }
+
+    @Override
+    public void onDrawFrame() {
         // Clear the rendering surface.
         GLES30.glClear(GL_COLOR_BUFFER_BIT);
 

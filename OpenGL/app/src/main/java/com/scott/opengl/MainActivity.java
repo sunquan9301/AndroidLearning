@@ -6,8 +6,9 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.scott.NativeRender;
 import com.scott.basic.renders.BaseRender;
-import com.scott.opengl.programs.DefaultShaderProgramES3_0;
+import com.scott.opengl.programs.DefaultRenderES3_0;
 
 public class MainActivity extends AppCompatActivity {
     private GLSurfaceView glSurfaceView;
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
         // Request an OpenGL ES 2.0 compatible context.
         glSurfaceView.setEGLContextClientVersion(3);
         // Assign our renderer.
-        glSurfaceView.setRenderer(new BaseRender(new DefaultShaderProgramES3_0()));
+//        glSurfaceView.setRenderer(new BaseRender(new DefaultRenderES3_0()));
+        glSurfaceView.setRenderer(new BaseRender(new NativeRender()));
         glSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         rendererSet = true;
 

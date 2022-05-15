@@ -9,24 +9,25 @@ import static android.opengl.GLES20.glDrawArrays;
 import static android.opengl.GLES20.glEnableVertexAttribArray;
 import static android.opengl.GLES20.glUseProgram;
 import static android.opengl.GLES20.glVertexAttribPointer;
+import static android.opengl.GLES20.glViewport;
 
 import android.util.Log;
 
-import com.scott.basic.shaders.IShaderProgram;
+import com.scott.basic.shaders.IRender;
 import com.scott.opengl.OpenGLApplication;
 import com.scott.opengl.R;
 import com.scott.basic.utils.GLHelper;
 
 import java.nio.FloatBuffer;
 
-public class DefaultShaderProgram2_0 implements IShaderProgram {
+public class DefaultRender2_0 implements IRender {
     private FloatBuffer vertexData;
     private int program;
     private int aPositionLocation;
     private int aColorLocation;
 
     @Override
-    public void initAttributions() {
+    public void init() {
         float[] tableVerticesWithTriangles = {
                 // Order of coordinates: X, Y, R, G, B
 
@@ -39,7 +40,7 @@ public class DefaultShaderProgram2_0 implements IShaderProgram {
     }
 
     @Override
-    public void bindShaderSource() {
+    public void onSurfaceCreated() {
         Log.i("sun_opengl", "onSurfaceCreated");
         glClearColor(0.0f, 1.0f, 1.0f, 0.0f);
 
@@ -63,7 +64,12 @@ public class DefaultShaderProgram2_0 implements IShaderProgram {
     }
 
     @Override
-    public void onDraw() {
+    public void onSurfaceChanged(int width, int height) {
+        glViewport(0, 0, width, height);
+    }
+
+    @Override
+    public void onDrawFrame() {
         // Clear the rendering surface.
         glClear(GL_COLOR_BUFFER_BIT);
 
