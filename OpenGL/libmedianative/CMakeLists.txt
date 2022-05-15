@@ -9,15 +9,12 @@ file(GLOB FILES_LIB_CORE_CODE "${PATH_TO_CODE_CORE}/*.cpp")
 include_directories(BEFORE ${PATH_TO_CODE_CORE}/include/)
 include_directories(${PATH_TO_CODE_CORE}/)
 
-##add_library(libmedianative SHARED
-##        ${FILES_JNI_LAYER}
-##        ${FILES_LIB_CORE_CODE}
-##        )
-#
-#
-#target_link_libraries(
-#        GLESv3
-#        dl
-#        z
-#        m
-#        )
+add_library(libmedianative SHARED
+        ${FILES_JNI_LAYER}
+        ${FILES_LIB_CORE_CODE}
+        )
+
+
+target_link_libraries(
+        libmedianative
+        )
