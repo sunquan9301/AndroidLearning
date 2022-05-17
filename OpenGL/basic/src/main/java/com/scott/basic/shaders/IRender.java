@@ -14,4 +14,6 @@ public interface IRender {
     void onSurfaceChanged(int width, int height);
 
     void onDrawFrame();
+
+    void onSurfaceDestroyed();
 }

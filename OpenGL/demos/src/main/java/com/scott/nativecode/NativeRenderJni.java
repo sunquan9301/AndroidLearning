@@ -1,5 +1,7 @@
 package com.scott.nativecode;
 
+import android.content.res.AssetManager;
+
 /**
  * 1. 添加NativeRenderJNI
  * 2. add CMakeLists
@@ -7,7 +9,7 @@ package com.scott.nativecode;
  * 4. NativeLoaderLibrary
  */
 public class NativeRenderJni {
-    public native void init();
+    public native void init(AssetManager assetManager, String vertexShaderAssetName, String fragmentShaderAssetName);
     public native void onSurfaceCreated();
     public native void onSurfaceChanged(int width, int height);
     public native void onDrawFrame();

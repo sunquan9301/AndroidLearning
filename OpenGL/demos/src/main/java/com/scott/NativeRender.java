@@ -1,14 +1,26 @@
 package com.scott;
 
+import android.content.res.AssetManager;
+
+import com.scott.basic.AppContext;
 import com.scott.basic.shaders.IRender;
 import com.scott.nativecode.NativeRenderJni;
 
 public class NativeRender implements IRender {
     NativeRenderJni nativeRenderJni;
+    String vertexShaderAssetName;
+    String fragmentShaderAssetName;
+
+    public NativeRender(String vertexShaderAssetName,String fragmentShaderAssetName) {
+        this.vertexShaderAssetName = vertexShaderAssetName;
+        this.fragmentShaderAssetName = fragmentShaderAssetName;
+    }
+
     @Override
     public void init() {
+        AssetManager assetManager = AppContext.basicContext.getAssets();
         nativeRenderJni = new NativeRenderJni();
-        nativeRenderJni.init();
+        nativeRenderJni.init(assetManager,vertexShaderAssetName,fragmentShaderAssetName);
     }
 
     @Override
@@ -24,6 +36,11 @@ public class NativeRender implements IRender {
     @Override
     public void onDrawFrame() {
         nativeRenderJni.onDrawFrame();
+
+    }
+
+    @Override
+    public void onSurfaceDestroyed() {
 
     }
 }

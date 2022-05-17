@@ -76,4 +76,9 @@ public class DefaultRender2_0 implements IRender {
         // Draw the table.
         glDrawArrays(GL_TRIANGLES, 0, 3);
     }
+
+    @Override
+    public void onSurfaceDestroyed() {
+
+    }
 }

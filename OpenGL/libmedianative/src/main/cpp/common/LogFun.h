@@ -12,6 +12,10 @@
 
 #endif //OPENGL_LOGFUN_H
 
+#define TAG_EGL_RENDER "EGLRender"
+#define TAG_ASSET "Asset"
+
+
 #define LOGV(tag,format, ...) __android_log_print(ANDROID_LOG_VERBOSE, tag, format, ##__VA_ARGS__)
 #define LOGD(tag,format, ...)  __android_log_print(ANDROID_LOG_DEBUG,  tag, format, ##__VA_ARGS__)
 #define LOGI(tag,format, ...)  __android_log_print(ANDROID_LOG_INFO,  tag, format, ##__VA_ARGS__)

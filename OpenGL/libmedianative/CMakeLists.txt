@@ -28,7 +28,16 @@ set(platform-libs
 add_library(medianative SHARED
         ${FILES_JNI_LAYER}
         ${FILES_LIB_CORE_CODE}
+        ${PATH_TO_CODE_CORE}/EGLRender.cpp
+
+
         ${PATH_TO_CODE_CORE}/jni/NativeRenderJNI.cpp
+
+
+        ${PATH_TO_CODE_CORE}/common/TypeUtil.cpp
+        ${PATH_TO_CODE_CORE}/common/AssetFun.cpp
+
+
         )
 
 

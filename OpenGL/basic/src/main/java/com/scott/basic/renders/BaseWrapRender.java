@@ -10,10 +10,10 @@ import com.scott.basic.utils.Check;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-public class BaseRender implements GLSurfaceView.Renderer {
+public class BaseWrapRender implements GLSurfaceView.Renderer {
     public static final String TAG =  "BaseRender";
     public IRender iRender;
-    public BaseRender(IRender shader) {
+    public BaseWrapRender(IRender shader) {
         this.iRender = shader;
         iRender.init();
     }
@@ -35,7 +35,12 @@ public class BaseRender implements GLSurfaceView.Renderer {
 
     @Override
     public void onDrawFrame(GL10 gl) {
-//        Log.i(TAG,"onDrawFrame");
+        Log.i(TAG,"onDrawFrame");
         iRender.onDrawFrame();
+    }
+
+    public void onSurfaceDestroyed() {
+        Log.i(TAG,"onSurfaceDestroyed");
+        iRender.onSurfaceDestroyed();
     }
 }

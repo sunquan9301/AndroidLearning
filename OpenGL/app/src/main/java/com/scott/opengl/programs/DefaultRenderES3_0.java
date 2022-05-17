@@ -80,4 +80,9 @@ public class DefaultRenderES3_0 implements IRender {
         // Draw the table.
         GLES30.glDrawArrays(GL_TRIANGLES, 0, 3);
     }
+
+    @Override
+    public void onSurfaceDestroyed() {
+
+    }
 }
