@@ -14,6 +14,9 @@
 
 #define TAG_EGL_RENDER "EGLRender"
 #define TAG_ASSET "Asset"
+#define TAG_GLUTILS "GLUtils"
+#define TAG_RENDER_JNI "NativeRenderJni"
+
 
 
 #define LOGV(tag,format, ...) __android_log_print(ANDROID_LOG_VERBOSE, tag, format, ##__VA_ARGS__)
@@ -21,3 +24,5 @@
 #define LOGI(tag,format, ...)  __android_log_print(ANDROID_LOG_INFO,  tag, format, ##__VA_ARGS__)
 #define LOGW(tag,format, ...)  __android_log_print(ANDROID_LOG_WARN,  tag, format, ##__VA_ARGS__)
 #define LOGE(tag,format, ...)  __android_log_print(ANDROID_LOG_ERROR,  tag, format, ##__VA_ARGS__)
+
+#define GL_RESULT_ERROR 0;

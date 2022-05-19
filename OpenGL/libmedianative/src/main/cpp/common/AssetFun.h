@@ -14,6 +14,7 @@ class AssetFun {
 
 public:
     static char *readAssetFile(const char *filename, AAssetManager *mgr);
+    static char *openTextFile(const char *filename, AAssetManager *mgr);
 
 };
 

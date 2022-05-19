@@ -14,14 +14,12 @@ find_library(android-lib android)
 find_library(z-lib z)
 find_library(EGL-lib EGL)
 find_library(GLESv3-lib GLESv3)
-find_library(OpenSLES-lib OpenSLES)
 
 set(platform-libs
         ${log-lib}
         ${android-lib}
         ${EGL-lib}
         ${GLESv3-lib}
-        ${OpenSLES-lib}
         ${z-lib}
         )
 
@@ -36,6 +34,8 @@ add_library(medianative SHARED
 
         ${PATH_TO_CODE_CORE}/common/TypeUtil.cpp
         ${PATH_TO_CODE_CORE}/common/AssetFun.cpp
+        ${PATH_TO_CODE_CORE}/common/GLUtils.cpp
+
 
 
         )

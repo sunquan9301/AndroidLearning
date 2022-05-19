@@ -1,8 +1,6 @@
 //
 // Created by 孙全 on 2022/5/17.
 //
-#pragma once
-
 #include <TypeUtil.h>
 
 extern "C"
