@@ -21,7 +21,7 @@ public class NativeRender implements IRender {
     public void init() {
         AssetManager assetManager = AppContext.basicContext.getAssets();
         nativeRenderJni = new NativeRenderJni();
-        nativeRenderJni.init(assetManager, IAssignType.LearnOpenGL.ASSIGN_LEARN_OPENGL_RECT_TWO_FRAGMENT_SHADER,vertexShaderAssetName,fragmentShaderAssetName);
+        nativeRenderJni.init(assetManager, IAssignType.LearnOpenGL.ASSIGN_LEARN_OPENGL_RECT_EBO,vertexShaderAssetName,fragmentShaderAssetName);
     }
 
     @Override

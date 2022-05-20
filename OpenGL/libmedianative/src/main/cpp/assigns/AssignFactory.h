@@ -15,6 +15,7 @@
 #include "assigns/triangle/RenderTriangleVAO.h"
 #include "assigns/triangle/RenderRect.h"
 #include "assigns/triangle/RenderRectTwoFragmentShader.h"
+#include "assigns/triangle/RenderRectEBO.h"
 
 class AssignFactory {
 public:

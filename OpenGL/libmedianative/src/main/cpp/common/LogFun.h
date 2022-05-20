@@ -23,6 +23,7 @@
 #define TAG_RENDER_TRIANGLE_VAO "RenderTriangleVAO"
 #define TAG_RENDER_RECT "RenderRect"
 #define TAG_RENDER_TWO_FRAGMENT_SHADER "RenderTwoFragmentShader"
+#define TAG_RENDER_RECT_EBO "RenderRectEBO"
 
 
 

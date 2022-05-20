@@ -12,7 +12,7 @@
 #include "common/AssetFun.h"
 #include <GLES3/gl3.h>
 #include "common/GLUtils.h"
-
+static GLuint DEFAULT_POS_LOCATION = 0;
 class GLAbsRender {
 public:
     GLAbsRender() {
@@ -58,6 +58,7 @@ public:
     }
 
 protected:
+
     /**
      * 程序对象
      */

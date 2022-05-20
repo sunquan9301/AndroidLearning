@@ -7,5 +7,6 @@ public class IAssignType {
         public static final int ASSIGN_LEARN_OPENGL_TRIANGLE_SIMPLE_VAO = 1003;
         public static final int ASSIGN_LEARN_OPENGL_RECT = 1004;
         public static final int ASSIGN_LEARN_OPENGL_RECT_TWO_FRAGMENT_SHADER = 1005;
+        public static final int ASSIGN_LEARN_OPENGL_RECT_EBO = 1006;
     }
 }

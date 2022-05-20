@@ -30,6 +30,10 @@ void AssignFactory::createAssignDemo(int type) {
         this->p_AssignDemo = new RenderRectTwoFragmentShader();
         return;
     }
+    if (type == ASSIGN_LEARN_OPENGL_RECT_EBO) {
+        this->p_AssignDemo = new RenderRectEBO();
+        return;
+    }
 
     this->p_AssignDemo = new RenderTriangle();
 }
