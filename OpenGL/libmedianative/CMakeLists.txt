@@ -31,10 +31,17 @@ add_library(medianative SHARED
 
         ${PATH_TO_CODE_CORE}/jni/NativeRenderJNI.cpp
 
+        ${PATH_TO_CODE_CORE}/assigns/GLAbsRender.cpp
+        ${PATH_TO_CODE_CORE}/assigns/AssignFactory.cpp
+        ${PATH_TO_CODE_CORE}/assigns/triangle/RenderTriangle.cpp
+        ${PATH_TO_CODE_CORE}/assigns/triangle/RenderTriangleVBO.cpp
+
+
 
         ${PATH_TO_CODE_CORE}/common/TypeUtil.cpp
         ${PATH_TO_CODE_CORE}/common/AssetFun.cpp
         ${PATH_TO_CODE_CORE}/common/GLUtils.cpp
+
 
 
 

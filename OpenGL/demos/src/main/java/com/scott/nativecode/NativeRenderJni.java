@@ -9,7 +9,7 @@ import android.content.res.AssetManager;
  * 4. NativeLoaderLibrary
  */
 public class NativeRenderJni {
-    public native void init(AssetManager assetManager, String vertexShaderAssetName, String fragmentShaderAssetName);
+    public native void init(AssetManager assetManager, int assignType, String vertexShaderAssetName, String fragmentShaderAssetName);
     public native void onSurfaceCreated();
     public native void onSurfaceChanged(int width, int height);
     public native void onDrawFrame();

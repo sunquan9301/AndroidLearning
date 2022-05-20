@@ -4,6 +4,7 @@ import android.content.res.AssetManager;
 
 import com.scott.basic.AppContext;
 import com.scott.basic.shaders.IRender;
+import com.scott.nativecode.IAssignType;
 import com.scott.nativecode.NativeRenderJni;
 
 public class NativeRender implements IRender {
@@ -20,7 +21,7 @@ public class NativeRender implements IRender {
     public void init() {
         AssetManager assetManager = AppContext.basicContext.getAssets();
         nativeRenderJni = new NativeRenderJni();
-        nativeRenderJni.init(assetManager,vertexShaderAssetName,fragmentShaderAssetName);
+        nativeRenderJni.init(assetManager, IAssignType.LearnOpenGL.ASSIGN_LEARN_OPENGL_TRIANGLE_SIMPLE_VBO,vertexShaderAssetName,fragmentShaderAssetName);
     }
 
     @Override

@@ -16,6 +16,10 @@
 #define TAG_ASSET "Asset"
 #define TAG_GLUTILS "GLUtils"
 #define TAG_RENDER_JNI "NativeRenderJni"
+#define TAG_ABS_RENDER "GLAbsRender"
+#define TAG_RENDER_TRIANGLE "RenderTriangle"
+#define TAG_RENDER_TRIANGLE_VBO "RenderTriangleVBO"
+#define TAG_ASSIGN_FACTORY "AssignFactory"
 
 
 
