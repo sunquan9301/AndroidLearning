@@ -35,6 +35,9 @@ add_library(medianative SHARED
         ${PATH_TO_CODE_CORE}/assigns/AssignFactory.cpp
         ${PATH_TO_CODE_CORE}/assigns/triangle/RenderTriangle.cpp
         ${PATH_TO_CODE_CORE}/assigns/triangle/RenderTriangleVBO.cpp
+        ${PATH_TO_CODE_CORE}/assigns/triangle/RenderTriangleVAO.cpp
+        ${PATH_TO_CODE_CORE}/assigns/triangle/RenderRect.cpp
+        ${PATH_TO_CODE_CORE}/assigns/triangle/RenderRectTwoFragmentShader.cpp
 
 
 

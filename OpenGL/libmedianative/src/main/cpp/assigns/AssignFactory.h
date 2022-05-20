@@ -7,11 +7,14 @@
 #pragma once
 
 #include "assigns/GLAbsRender.h"
-#include "assigns/triangle/RenderTriangle.h"
-#include "assigns/triangle/RenderTriangleVBO.h"
 #include "common/LogFun.h"
 #include "common/AssignType.h"
 
+#include "assigns/triangle/RenderTriangle.h"
+#include "assigns/triangle/RenderTriangleVBO.h"
+#include "assigns/triangle/RenderTriangleVAO.h"
+#include "assigns/triangle/RenderRect.h"
+#include "assigns/triangle/RenderRectTwoFragmentShader.h"
 
 class AssignFactory {
 public:

@@ -18,8 +18,11 @@
 #define TAG_RENDER_JNI "NativeRenderJni"
 #define TAG_ABS_RENDER "GLAbsRender"
 #define TAG_RENDER_TRIANGLE "RenderTriangle"
-#define TAG_RENDER_TRIANGLE_VBO "RenderTriangleVBO"
 #define TAG_ASSIGN_FACTORY "AssignFactory"
+#define TAG_RENDER_TRIANGLE_VBO "RenderTriangleVBO"
+#define TAG_RENDER_TRIANGLE_VAO "RenderTriangleVAO"
+#define TAG_RENDER_RECT "RenderRect"
+#define TAG_RENDER_TWO_FRAGMENT_SHADER "RenderTwoFragmentShader"
 
 
 
