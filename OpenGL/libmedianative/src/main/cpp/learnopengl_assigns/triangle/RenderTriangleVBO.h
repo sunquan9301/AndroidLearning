@@ -4,7 +4,7 @@
 #pragma once
 #ifndef OPENGL_RENDERTRIANGLEVBO_H
 #define OPENGL_RENDERTRIANGLEVBO_H
-#include "assigns/GLAbsRender.h"
+#include "learnopengl_assigns/GLAbsRender.h"
 
 class RenderTriangleVBO  : public GLAbsRender{
 public:

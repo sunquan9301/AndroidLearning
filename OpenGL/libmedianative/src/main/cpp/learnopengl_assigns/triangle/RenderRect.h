@@ -4,7 +4,7 @@
 #pragma once
 #ifndef OPENGL_RENDERRECT_H
 #define OPENGL_RENDERRECT_H
-#include "assigns/GLAbsRender.h"
+#include "learnopengl_assigns/GLAbsRender.h"
 
 class RenderRect : public GLAbsRender{
 public:

@@ -58,7 +58,6 @@ void EGLRender::onDestroy() {
 void EGLRender::onInit(JNIEnv *env, jobject asset_manager, const string &vertexShaderAssetName,
                        const string &fragmentShaderAssetName) {
     GLUtils::printGLInfo();
-    glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
     LOGI(TAG_EGL_RENDER,"vertexShaderAssetName = %s, fragmentShaderAssetName = %s",vertexShaderAssetName.c_str(),fragmentShaderAssetName.c_str());
     AAssetManager *pManager = AAssetManager_fromJava(env, asset_manager);
     this->VERTEX_SHADER = AssetFun::readAssetFile(vertexShaderAssetName.c_str(), pManager);

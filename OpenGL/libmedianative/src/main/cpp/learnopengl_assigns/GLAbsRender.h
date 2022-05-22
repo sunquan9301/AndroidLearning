@@ -25,7 +25,6 @@ public:
     virtual ~GLAbsRender() {}
     virtual void onInit(JNIEnv *env,jobject asset_manager,const string &vertexShaderAssetName,const string &fragmentShaderAssetName) {
         GLUtils::printGLInfo();
-        glClearColor(1.0f, 1.0f, 0.0f, 0.0f);
         LOGI(TAG_RENDER_TRIANGLE,"vertexShaderAssetName = %s, fragmentShaderAssetName = %s",vertexShaderAssetName.c_str(),fragmentShaderAssetName.c_str());
         AAssetManager *pManager = AAssetManager_fromJava(env, asset_manager);
         this->VERTEX_SHADER = AssetFun::readAssetFile(vertexShaderAssetName.c_str(), pManager);
@@ -80,11 +79,6 @@ protected:
      * 屏幕高度
      */
     int m_Height;
-
-    /**
-   * assginType
-   */
-    int m_AssignType;
 };
 
 

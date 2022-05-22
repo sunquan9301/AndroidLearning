@@ -5,7 +5,7 @@
 #pragma once
 #ifndef OPENGL_RENDERRECTTWOFRAGMENTSHADER_H
 #define OPENGL_RENDERRECTTWOFRAGMENTSHADER_H
-#include "assigns/GLAbsRender.h"
+#include "learnopengl_assigns/GLAbsRender.h"
 
 //使用2个fragment shader，2个VBO, 2个VAO 画不同颜色的2个三角形
 class RenderRectTwoFragmentShader : public GLAbsRender{

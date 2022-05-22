@@ -17,13 +17,19 @@
 #define TAG_GLUTILS "GLUtils"
 #define TAG_RENDER_JNI "NativeRenderJni"
 #define TAG_ABS_RENDER "GLAbsRender"
-#define TAG_RENDER_TRIANGLE "RenderTriangle"
 #define TAG_ASSIGN_FACTORY "AssignFactory"
+
+// learn opengl -> triangle TAG
+#define TAG_RENDER_TRIANGLE "RenderTriangle"
 #define TAG_RENDER_TRIANGLE_VBO "RenderTriangleVBO"
 #define TAG_RENDER_TRIANGLE_VAO "RenderTriangleVAO"
 #define TAG_RENDER_RECT "RenderRect"
 #define TAG_RENDER_TWO_FRAGMENT_SHADER "RenderTwoFragmentShader"
 #define TAG_RENDER_RECT_EBO "RenderRectEBO"
+
+// learn opengl -> glsl TAG
+#define TAG_SHADERS_SIMPLE_SHADER "SimpleShader"
+
 
 
 

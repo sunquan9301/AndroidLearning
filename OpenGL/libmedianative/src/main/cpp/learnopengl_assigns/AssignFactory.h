@@ -6,16 +6,20 @@
 #define OPENGL_ASSIGNFACTORY_H
 #pragma once
 
-#include "assigns/GLAbsRender.h"
+#include "learnopengl_assigns/GLAbsRender.h"
 #include "common/LogFun.h"
 #include "common/AssignType.h"
 
-#include "assigns/triangle/RenderTriangle.h"
-#include "assigns/triangle/RenderTriangleVBO.h"
-#include "assigns/triangle/RenderTriangleVAO.h"
-#include "assigns/triangle/RenderRect.h"
-#include "assigns/triangle/RenderRectTwoFragmentShader.h"
-#include "assigns/triangle/RenderRectEBO.h"
+//triangle
+#include "learnopengl_assigns/triangle/RenderTriangle.h"
+#include "learnopengl_assigns/triangle/RenderTriangleVBO.h"
+#include "learnopengl_assigns/triangle/RenderTriangleVAO.h"
+#include "learnopengl_assigns/triangle/RenderRect.h"
+#include "learnopengl_assigns/triangle/RenderRectTwoFragmentShader.h"
+#include "learnopengl_assigns/triangle/RenderRectEBO.h"
+
+//shaders
+#include "learnopengl_assigns/shaders/SimpleShader.h"
 
 class AssignFactory {
 public:

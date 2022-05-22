@@ -23,6 +23,7 @@ void RenderRectEBO::onDraw() {
 }
 
 void RenderRectEBO::onSurfaceCreated() {
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
     this->m_ProgramObj = GLUtils::createProgram(&this->VERTEX_SHADER, &this->FRAGMENT_SHADER);
     // 设置清除颜色
     if (!this->m_ProgramObj) {

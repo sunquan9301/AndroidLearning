@@ -34,6 +34,10 @@ void AssignFactory::createAssignDemo(int type) {
         this->p_AssignDemo = new RenderRectEBO();
         return;
     }
+    if (type == ASSIGN_LEARN_OPENGL_SHADER_SIMPLE_SHADER) {
+        this->p_AssignDemo = new SimpleShader();
+        return;
+    }
 
     this->p_AssignDemo = new RenderTriangle();
 }

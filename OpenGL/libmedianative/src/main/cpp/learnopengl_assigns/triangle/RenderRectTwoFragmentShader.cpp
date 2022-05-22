@@ -27,6 +27,7 @@ void RenderRectTwoFragmentShader::onDraw() {
 }
 
 void RenderRectTwoFragmentShader::onSurfaceCreated() {
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
     this->m_ProgramObjRED = GLUtils::createProgram(&this->VERTEX_SHADER, &this->FRAGMENT_SHADER_RED);
     // 设置清除颜色
     if (!this->m_ProgramObjRED) {
@@ -62,7 +63,6 @@ void RenderRectTwoFragmentShader::onInit(JNIEnv *env, jobject asset_manager,
                                          const string &vertexShaderAssetName,
                                          const string &fragmentShaderAssetName) {
     GLUtils::printGLInfo();
-    glClearColor(1.0f, 1.0f, 0.0f, 0.0f);
     AAssetManager *pManager = AAssetManager_fromJava(env, asset_manager);
     this->VERTEX_SHADER = AssetFun::readAssetFile("hello_triangle_vertex_shader.glsl", pManager);
     this->FRAGMENT_SHADER_RED = AssetFun::readAssetFile("hello_triangle_fragment_shader.glsl", pManager);

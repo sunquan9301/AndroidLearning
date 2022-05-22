@@ -4,7 +4,7 @@
 #pragma once
 #ifndef OPENGL_RENDERRECTEBO_H
 #define OPENGL_RENDERRECTEBO_H
-#include "assigns/GLAbsRender.h"
+#include "learnopengl_assigns/GLAbsRender.h"
 
 class RenderRectEBO : public GLAbsRender{
     virtual void onDraw();

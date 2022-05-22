@@ -4,7 +4,7 @@
 #pragma once
 #ifndef OPENGL_RENDERTRIANGLEVAO_H
 #define OPENGL_RENDERTRIANGLEVAO_H
-#include "assigns/GLAbsRender.h"
+#include "learnopengl_assigns/GLAbsRender.h"
 
 class RenderTriangleVAO : public GLAbsRender{
 public:
