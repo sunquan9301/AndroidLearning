@@ -17,7 +17,9 @@
 #define TAG_GLUTILS "GLUtils"
 #define TAG_RENDER_JNI "NativeRenderJni"
 #define TAG_ABS_RENDER "GLAbsRender"
+#define TAG_ABS_RENDER_V2 "GLAbsRenderV2"
 #define TAG_ASSIGN_FACTORY "AssignFactory"
+#define TAG_ASSIGN_FACTORY_V2 "AssignFactoryV2"
 
 // learn opengl -> triangle TAG
 #define TAG_RENDER_TRIANGLE "RenderTriangle"

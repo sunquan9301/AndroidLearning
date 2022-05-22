@@ -3,6 +3,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <iosfwd>
+#include <learnopengl_assigns/AssignFactoryV2.h>
 #include "learnopengl_assigns/AssignFactory.h"
 
 
@@ -12,16 +13,19 @@ extern "C" {
 JNIEXPORT void JNICALL
 Java_com_scott_nativecode_NativeRenderJni_onSurfaceCreated(JNIEnv *env, jobject thiz) {
     AssignFactory::getInstance()->onSurfaceCreated();
+    AssignFactoryV2::getInstance()->onSurfaceCreated();
 }
 
 JNIEXPORT void JNICALL
 Java_com_scott_nativecode_NativeRenderJni_onSurfaceChanged(JNIEnv *env, jobject thiz, jint width,
                                                            jint height) {
     AssignFactory::getInstance()->onSurfaceChange(width,height);
+    AssignFactoryV2::getInstance()->onSurfaceChange(width,height);
 }
 JNIEXPORT void JNICALL
 Java_com_scott_nativecode_NativeRenderJni_onDrawFrame(JNIEnv *env, jobject thiz) {
     AssignFactory::getInstance()->onDraw();
+    AssignFactoryV2::getInstance()->onDraw();
 
 }
 
@@ -35,8 +39,16 @@ Java_com_scott_nativecode_NativeRenderJni_init(JNIEnv *env, jobject thiz, jobjec
 }
 
 JNIEXPORT void JNICALL
+Java_com_scott_nativecode_NativeRenderJni_initV2(JNIEnv *env, jobject thiz, jobject asset_manager,
+                                               jint assignType) {
+    AssignFactoryV2::getInstance()->createAssignDemo(assignType);
+    AssignFactoryV2::getInstance()->onInit(env,asset_manager);
+}
+
+JNIEXPORT void JNICALL
 Java_com_scott_nativecode_NativeRenderJni_onDestroy(JNIEnv *env, jobject thiz) {
     AssignFactory::getInstance()->onDestroy();
+    AssignFactoryV2::getInstance()->onDestroy();
 }
 
 #ifdef __cplusplus

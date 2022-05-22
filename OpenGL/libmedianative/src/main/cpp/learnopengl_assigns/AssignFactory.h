@@ -2,8 +2,6 @@
 // Created by 孙全 on 2022/5/20.
 //
 
-#ifndef OPENGL_ASSIGNFACTORY_H
-#define OPENGL_ASSIGNFACTORY_H
 #pragma once
 
 #include "learnopengl_assigns/GLAbsRender.h"
@@ -68,4 +66,3 @@ private:
 };
 
 
-#endif //OPENGL_ASSIGNFACTORY_H
