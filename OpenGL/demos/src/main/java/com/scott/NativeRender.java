@@ -42,6 +42,5 @@ public class NativeRender implements IRender {
 
     @Override
     public void onSurfaceDestroyed() {
-        nativeRenderJni.onDestroy();
     }
 }

@@ -33,9 +33,7 @@ add_library(medianative SHARED
 
 
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/GLAbsRender.cpp
-        ${PATH_TO_CODE_CORE}/learnopengl_assigns/GLAbsRenderV2.cpp
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/AssignFactory.cpp
-        ${PATH_TO_CODE_CORE}/learnopengl_assigns/AssignFactoryV2.cpp
 
         # learnopengl triangle demo
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/triangle/RenderTriangle.cpp
@@ -47,7 +45,6 @@ add_library(medianative SHARED
 
         # shaders demo
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/shaders/SimpleShader.cpp
-        ${PATH_TO_CODE_CORE}/learnopengl_assigns/shaders/SimpleShaderV2.cpp
 
 
 

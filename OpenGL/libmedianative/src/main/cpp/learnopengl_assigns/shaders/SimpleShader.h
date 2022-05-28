@@ -13,7 +13,6 @@ class SimpleShader : public GLAbsRender {
 public:
     virtual void onDraw();
     virtual void onSurfaceCreated();
-    virtual void onInit(JNIEnv *env,jobject asset_manager,const string &vertexShaderAssetName,const string &fragmentShaderAssetName);
 };
 
 

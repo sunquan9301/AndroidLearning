@@ -27,13 +27,4 @@ void SimpleShader::onSurfaceCreated() {
     glEnableVertexAttribArray(POS_LOCATION);
 }
 
-void SimpleShader::onInit(JNIEnv *env, jobject asset_manager, const string &vertexShaderAssetName,
-                          const string &fragmentShaderAssetName) {
-    GLUtils::printGLInfo();
-    AAssetManager *pManager = AAssetManager_fromJava(env, asset_manager);
-    this->VERTEX_SHADER = AssetFun::readAssetFile("learnopengl_shaders_simpleshader_vertex_shader.glsl", pManager);
-    this->FRAGMENT_SHADER = AssetFun::readAssetFile("learnopengl_shaders_simpleshader_fragment_shader.glsl", pManager);
-    LOGI(TAG_SHADERS_SIMPLE_SHADER,"vertexShaderContent = %s",this->VERTEX_SHADER);
-    LOGI(TAG_SHADERS_SIMPLE_SHADER,"fragmentShaderContent = %s",this->FRAGMENT_SHADER);
-}
 

@@ -5,7 +5,6 @@
 #include "AssignFactory.h"
 AssignFactory *AssignFactory::m_Instance = new AssignFactory();
 
-
 AssignFactory *AssignFactory::getInstance() {
     return m_Instance;
 }
@@ -40,4 +39,12 @@ void AssignFactory::createAssignDemo(int type) {
     }
 
     this->p_AssignDemo = new RenderTriangle();
+}
+
+void AssignFactory::onDestroyInstance() {
+    if(AssignFactory::m_Instance){
+        AssignFactory::m_Instance->onDestroy();
+        delete AssignFactory::m_Instance;
+        AssignFactory::m_Instance = nullptr;
+    }
 }

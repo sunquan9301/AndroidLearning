@@ -56,9 +56,12 @@ public:
             return;
         }
         p_AssignDemo->onDestroy();
+        delete p_AssignDemo;
+        p_AssignDemo = nullptr;
     }
 
     static AssignFactory *getInstance();
+    static void onDestroyInstance();
 
 private:
     static AssignFactory *m_Instance;
