@@ -9,12 +9,15 @@
 #include <string>
 #include "common/TypeUtil.h"
 #include "common/LogFun.h"
+#include "common/TimeUtil.h"
 #include "common/AssetFun.h"
 #include <GLES3/gl3.h>
 #include "common/GLUtils.h"
 static GLuint DEFAULT_POS_LOCATION = 0;
+static GLuint DEFAULT_COLOR_LOCATION = 1;
 class GLAbsRender {
 public:
+
     GLAbsRender() {
         VERTEX_SHADER = GL_NONE;
         FRAGMENT_SHADER = GL_NONE;

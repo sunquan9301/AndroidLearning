@@ -45,12 +45,15 @@ add_library(medianative SHARED
 
         # shaders demo
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/shaders/SimpleShader.cpp
+        ${PATH_TO_CODE_CORE}/learnopengl_assigns/shaders/UniformShader.cpp
+        ${PATH_TO_CODE_CORE}/learnopengl_assigns/shaders/StrideShader.cpp
 
 
 
         ${PATH_TO_CODE_CORE}/common/TypeUtil.cpp
         ${PATH_TO_CODE_CORE}/common/AssetFun.cpp
         ${PATH_TO_CODE_CORE}/common/GLUtils.cpp
+        ${PATH_TO_CODE_CORE}/common/TimeUtil.cpp
 
 
 

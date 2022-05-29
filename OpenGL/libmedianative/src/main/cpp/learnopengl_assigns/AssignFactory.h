@@ -18,10 +18,13 @@
 
 //shaders
 #include "learnopengl_assigns/shaders/SimpleShader.h"
+#include "learnopengl_assigns/shaders/UniformShader.h"
+#include "learnopengl_assigns/shaders/StrideShader.h"
 
 class AssignFactory {
 public:
     void createAssignDemo(int type);
+    void createAssignDemoV2(JNIEnv *env,jobject asset_manager,int type);
     void onInit(JNIEnv *env,jobject asset_manager,const string &vertexShaderAssetName,const string &fragmentShaderAssetName){
         if(!p_AssignDemo){
             LOGE(TAG_ASSIGN_FACTORY,"p_AssignDemo is null");

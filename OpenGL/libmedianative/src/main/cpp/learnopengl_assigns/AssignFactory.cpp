@@ -33,12 +33,34 @@ void AssignFactory::createAssignDemo(int type) {
         this->p_AssignDemo = new RenderRectEBO();
         return;
     }
-    if (type == ASSIGN_LEARN_OPENGL_SHADER_SIMPLE_SHADER) {
-        this->p_AssignDemo = new SimpleShader();
-        return;
-    }
+
 
     this->p_AssignDemo = new RenderTriangle();
+}
+
+void AssignFactory::createAssignDemoV2(JNIEnv *env, jobject asset_manager, int type) {
+    if (type == ASSIGN_LEARN_OPENGL_SHADER_SIMPLE_SHADER) {
+        this->p_AssignDemo = new SimpleShader();
+        this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_shaders_simpleshader_vertex_shader.glsl","learnopengl_shaders_simpleshader_fragment_shader.glsl");
+        return;
+    }
+//    if (type == ASSIGN_LEARN_OPENGL_SHADER_UNIFORM_SHADER) {
+//        this->p_AssignDemo = new UniformShader();
+//        this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_shaders_uniform_vertex_shader.glsl","learnopengl_shaders_uniform_fragment_shader.glsl");
+//        return;
+//    }
+    if (type == ASSIGN_LEARN_OPENGL_SHADER_UNIFORM_SHADER) {
+        this->p_AssignDemo = new UniformShader();
+        this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_shaders_uniform_vertex_shader1.glsl","learnopengl_shaders_uniform_fragment_shader1.glsl");
+        return;
+    }
+    if (type == ASSIGN_LEARN_OPENGL_SHADER_STRIDE_SHADER) {
+        this->p_AssignDemo = new StrideShader();
+        this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_shaders_stride_vertex_shader.glsl","learnopengl_shaders_stride_fragment_shader.glsl");
+        return;
+    }
+    this->p_AssignDemo = new SimpleShader();
+    this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_shaders_simpleshader_vertex_shader.glsl","learnopengl_shaders_simpleshader_fragment_shader.glsl");
 }
 
 void AssignFactory::onDestroyInstance() {
@@ -48,3 +70,4 @@ void AssignFactory::onDestroyInstance() {
         AssignFactory::m_Instance = nullptr;
     }
 }
+

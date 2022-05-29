@@ -37,8 +37,7 @@ JNIEXPORT void JNICALL
 Java_com_scott_nativecode_NativeRenderJni_initV2(JNIEnv *env, jobject thiz, jobject asset_manager,
                                                  jint assign_type) {
     // TODO: implement initV2()
-    AssignFactory::getInstance()->createAssignDemo(assign_type);
-    AssignFactory::getInstance()->onInit(env,asset_manager,"learnopengl_shaders_simpleshader_vertex_shader.glsl","learnopengl_shaders_simpleshader_fragment_shader.glsl");
+    AssignFactory::getInstance()->createAssignDemoV2(env,asset_manager,assign_type);
 }
 
 JNIEXPORT void JNICALL

@@ -29,6 +29,8 @@
 
 // learn opengl -> glsl TAG
 #define TAG_SHADERS_SIMPLE_SHADER "SimpleShader"
+#define TAG_SHADERS_SIMPLE_SHADER "UniformShader"
+#define TAG_SHADERS_STRIDE_SHADER "StrideShader"
 
 
 

@@ -7,7 +7,6 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private GLSurfaceView glSurfaceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
