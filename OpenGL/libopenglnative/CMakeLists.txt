@@ -23,7 +23,7 @@ set(platform-libs
         ${z-lib}
         )
 
-add_library(medianative SHARED
+add_library(openglnative SHARED
         ${FILES_JNI_LAYER}
         ${FILES_LIB_CORE_CODE}
         ${PATH_TO_CODE_CORE}/EGLRender.cpp
@@ -58,6 +58,6 @@ add_library(medianative SHARED
 
 
 target_link_libraries(
-        medianative
+        openglnative
         ${platform-libs}
         )

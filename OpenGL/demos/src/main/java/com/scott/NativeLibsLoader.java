@@ -15,7 +15,7 @@ public class NativeLibsLoader {
             return;
         }
         List<String> list = new ArrayList<>();
-        list.add("medianative");
+        list.add("openglnative");
         if (mLibraryLoader != null) {
             mLibraryLoader.onLoadNativeLibs(list);
             sLibraryLoaded = true;

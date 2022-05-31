@@ -14,7 +14,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/basic" />
             <option value="$PROJECT_DIR$/demos" />
-            <option value="$PROJECT_DIR$/libmedianative" />
+            <option value="$PROJECT_DIR$/libopenglnative" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
