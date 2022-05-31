@@ -54,10 +54,6 @@ add_library(medianative SHARED
         ${PATH_TO_CODE_CORE}/common/AssetFun.cpp
         ${PATH_TO_CODE_CORE}/common/GLUtils.cpp
         ${PATH_TO_CODE_CORE}/common/TimeUtil.cpp
-
-
-
-
         )
 
 

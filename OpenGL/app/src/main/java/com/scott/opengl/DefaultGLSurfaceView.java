@@ -22,7 +22,6 @@ public class DefaultGLSurfaceView extends GLSurfaceView {
     }
 
     private void init() {
-        // Request an OpenGL ES 2.0 compatible context.
         setEGLContextClientVersion(3);
         // Assign our renderer.
 //        glSurfaceView.setRenderer(new BaseRender(new DefaultRenderES3_0()));

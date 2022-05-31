@@ -1,0 +1,128 @@
+1.基本配置
+    # cmake 最低版本需求
+    cmake_minimum_required(VERSION 3.13)
+
+    # 工程名称
+    project(cmake_study)
+
+    # 设置
+    set(CMAKE_CXX_STANDARD 11)
+
+    # 编译源码生成目标
+    add_executable(cmake_study src/main.cc)
+
+2.变量：
+    定义：SET(set)定义变量
+    语法：SET(VAR [VALUE] [CACHE TYPE DOCSTRING [FORCE]])
+    常用变量：${NAME}获取
+        CMAKE_SOURCE_DIR
+        PROJECT_SOURCE_DIR
+        CMAKE_CURRENT_SOURCE_DIR(CMakeLists.txt所在目录)
+        EXECUTABLE_OUTPUT_PATH
+        PROJECT_NAME
+        CMAKE_MAJOR_VERSION：CMAKE 主版本号
+        CMAKE_MINOR_VERSION：CMAKE 次版本号
+        CMAKE_SYSTEM：系统名称,比如 Linux-2.6.22
+        CMAKE_SYSTEM_NAME：不包含版本的系统名,比如 Linux
+        CMAKE_SYSTEM_VERSION：系统版本
+        CMAKE_SYSTEM_PROCESSOR：处理器
+
+3.常用指令
+    ADD_DEFINITIONS
+        语法：ADD_DEFINITIONS(-DENABLE_DEBUG -DABC)
+        说明：向 C/C++编译器添加 -D 定义. 如果你的代码中定义了#ifdef ENABLE_DEBUG #endif,这个代码块就会生效。
+    ADD_DEPENDENCIES
+        语法: ADD_DEPENDENCIES(target-name depend-target1 depend-target2 ...)
+        说明：定义 target 依赖的其他 target, 确保在编译本 target 之前,其他的 target 已经被构建。
+    ADD_SUBDIRECTORY
+        语法 : ADD_SUBDIRECTORY(NAME) 添加一个文件夹进行编译
+    find_package
+        语法 : find_package(<PackageName> [version] [EXACT] [QUIET] [MODULE] [REQUIRED] [[COMPONENTS] [components...]] [OPTIONAL_COMPONENTS components...] [NO_POLICY_SCOPE])
+        说明 : 查找并从外部项目加载设置。
+    include_directories
+        语法 : include_directories([AFTER|BEFORE] [SYSTEM] dir1 [dir2 ...])
+        说明 : 将给定目录添加到编译器用来搜索包含文件的目录中。相对路径被解释为相对于当前源目录。
+    link_libraries
+        语法 : link_libraries([item1 [item2 [...]]] [[debug|optimized|general] <item>] ...)
+        说明 : 将库链接到以后添加的所有目标。
+    ADD_EXECUTABLE
+        语法 : ADD_EXECUTABLE(<name> [source1] [source2 ...])
+        说明 ：利用源码文件生成目标可执行程序。
+    ADD_LIBRARY
+        语法 : ADD_LIBRARY(<name> [STATIC | SHARED | MODULE] [source1] [source2 ...])
+        说明 ：根据源码文件生成目标库。
+
+    FILE 指令
+         FILE(WRITE filename "message to write"... )
+         FILE(APPEND filename "message to write"... )
+         FILE(READ filename variable)
+         FILE(GLOB variable [RELATIVE path] [globbing expression_r_rs]...)
+         FILE(GLOB_RECURSE variable [RELATIVE path] [globbing expression_r_rs]...)
+         FILE(REMOVE [directory]...)
+         FILE(REMOVE_RECURSE [directory]...)
+         FILE(MAKE_DIRECTORY [directory]...)
+         FILE(RELATIVE_PATH variable directory file)
+         FILE(TO_CMAKE_PATH path result)
+         FILE(TO_NATIVE_PATH path result)
+
+    IF 指令
+        if(<condition>)
+          <commands>
+        elseif(<condition>) # optional block, can be repeated
+          <commands>
+        else()              # optional block
+          <commands>
+        endif()
+
+        #####
+
+        IF(var),如果变量不是:空,0,N, NO, OFF, FALSE, NOTFOUND 或<var>_NOTFOUND 时,表达式为真。
+        IF(NOT var ),与上述条件相反。
+        IF(var1 AND var2),当两个变量都为真是为真。
+        IF(var1 OR var2),当两个变量其中一个为真时为真。
+        IF(COMMAND cmd),当给定的 cmd 确实是命令并可以调用是为真。
+        IF(EXISTS dir)或者 IF(EXISTS file),当目录名或者文件名存在时为真。
+        IF(file1 IS_NEWER_THAN file2),当 file1 比 file2 新,或者 file1/file2 其中有一个不存在时为真,文件名请使用完整路径。
+        IF(IS_DIRECTORY dirname),当 dirname 是目录时,为真。
+        IF(variable MATCHES regex)
+        IF(string MATCHES regex)
+
+    FOREACH 指令
+        foreach(<loop_var> <items>)
+          <commands>
+        endforeach()
+
+    WHILE 指令
+        while(<condition>)
+          <commands>
+        endwhile()
+
+Demo：
+    目录结构：
+        ./Demo3
+            |
+            +--- main.cc
+            |
+            +--- math/
+                  |
+                  +--- MathFunctions.cc
+                  |
+                  +--- MathFunctions.h
+    CMakeLists.txt
+        # CMake 最低版本号要求
+        cmake_minimum_required (VERSION 2.8)
+        # 项目信息
+        project (Demo3)
+        # 查找当前目录下的所有源文件
+        # 并将名称保存到 DIR_SRCS 变量
+        aux_source_directory(. DIR_SRCS)
+        # 添加 math 子目录
+        add_subdirectory(math)
+        # 指定生成目标
+        add_executable(Demo main.cc)
+        # 添加链接库
+        target_link_libraries(Demo MathFunctions)
+
+
+
+
