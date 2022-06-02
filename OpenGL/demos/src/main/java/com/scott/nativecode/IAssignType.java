@@ -15,5 +15,8 @@ public class IAssignType {
         public static final int ASSIGN_LEARN_OPENGL_SHADER_UNIFORM_SHADER = 2002;
         public static final int ASSIGN_LEARN_OPENGL_SHADER_STRIDE_SHADER = 2003;
 
+        //texture
+        public static final int ASSIGN_LEARN_OPENGL_TEXTURE_DEMO = 3001;
+
     }
 }

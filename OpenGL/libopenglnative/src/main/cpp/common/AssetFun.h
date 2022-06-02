@@ -16,6 +16,7 @@ public:
     static char *readAssetFile(const char *filename, AAssetManager *mgr);
     static char *openTextFile(const char *filename, AAssetManager *mgr);
 
+    static unsigned char *loadImageToMemory(const char *filename, AAssetManager *mgr, int *len);
 };
 
 

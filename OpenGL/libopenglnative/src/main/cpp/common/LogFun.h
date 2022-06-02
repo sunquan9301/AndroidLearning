@@ -27,11 +27,12 @@
 #define TAG_RENDER_TWO_FRAGMENT_SHADER "RenderTwoFragmentShader"
 #define TAG_RENDER_RECT_EBO "RenderRectEBO"
 
-// learn opengl -> glsl TAG
+// learn opengl -> shader TAG
 #define TAG_SHADERS_SIMPLE_SHADER "SimpleShader"
-#define TAG_SHADERS_SIMPLE_SHADER "UniformShader"
+#define TAG_SHADERS_UNIFORM_SHADER "UniformShader"
 #define TAG_SHADERS_STRIDE_SHADER "StrideShader"
-
+// learn opengl -> texture TAG
+#define TAG_TEXTURE_DEMO "TextureDemo"
 
 
 

@@ -4,6 +4,7 @@ set(PATH_TO_CODE_CORE ${CMAKE_SOURCE_DIR}/src/main/cpp)
 
 file(GLOB FILES_JNI_LAYER "${PATH_TO_JNI_LAYER}/*.cpp")
 
+include_directories(${PATH_TO_CODE_CORE}/include/libimage)
 include_directories(${PATH_TO_CODE_CORE}/include/)
 include_directories(${PATH_TO_CODE_CORE}/common/)
 include_directories(${PATH_TO_CODE_CORE}/jni/)
@@ -47,6 +48,9 @@ add_library(openglnative SHARED
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/shaders/SimpleShader.cpp
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/shaders/UniformShader.cpp
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/shaders/StrideShader.cpp
+
+        # textures
+        ${PATH_TO_CODE_CORE}/learnopengl_assigns/textures/TextureDemo.cpp
 
 
 

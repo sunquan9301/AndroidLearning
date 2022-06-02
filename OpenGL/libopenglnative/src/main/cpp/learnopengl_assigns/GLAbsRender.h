@@ -15,6 +15,7 @@
 #include "common/GLUtils.h"
 static GLuint DEFAULT_POS_LOCATION = 0;
 static GLuint DEFAULT_COLOR_LOCATION = 1;
+static GLuint DEFAULT_TEXTURE_LOCATION = 2;
 class GLAbsRender {
 public:
 

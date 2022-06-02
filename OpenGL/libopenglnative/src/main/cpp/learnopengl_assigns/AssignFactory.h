@@ -20,6 +20,7 @@
 #include "learnopengl_assigns/shaders/SimpleShader.h"
 #include "learnopengl_assigns/shaders/UniformShader.h"
 #include "learnopengl_assigns/shaders/StrideShader.h"
+#include "learnopengl_assigns/textures/TextureDemo.h"
 
 class AssignFactory {
 public:

@@ -10,13 +10,13 @@ static GLfloat vertices[] = {
 };
 static GLfloat greenColor = 1;
 void UniformShader::onDraw() {
-    LOGI(TAG_SHADERS_SIMPLE_SHADER,"onDraw");
+    LOGI(TAG_SHADERS_UNIFORM_SHADER,"onDraw");
     glUseProgram(this->m_ProgramObj);
 
     //assign1 :  change color
 //    greenColor+=1;
 //    float d = (sin(greenColor/10.0f) / 2.0f) + 0.5f;
-//    LOGI(TAG_SHADERS_SIMPLE_SHADER,"greenColor = %f, value = %f",greenColor,d);
+//    LOGI(TAG_SHADERS_UNIFORM_SHADER,"greenColor = %f, value = %f",greenColor,d);
 //    glUniform4f(this->uniformLoc,1.0f,d,0.0f,0.0f);
 
     //assign2:
@@ -36,7 +36,7 @@ void UniformShader::onSurfaceCreated() {
     this->m_ProgramObj = GLUtils::createProgram(&this->VERTEX_SHADER, &this->FRAGMENT_SHADER);
     // 设置清除颜色
     if (!this->m_ProgramObj) {
-        LOGD(TAG_SHADERS_SIMPLE_SHADER,"Could not Create program");
+        LOGD(TAG_SHADERS_UNIFORM_SHADER,"Could not Create program");
         return;
     }
 

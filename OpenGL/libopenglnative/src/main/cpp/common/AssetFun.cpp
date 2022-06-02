@@ -19,6 +19,7 @@ char *AssetFun::readAssetFile(const char *filename, AAssetManager *mgr) {
     return pBuffer;
 }
 
+
 char *AssetFun::openTextFile(const char *path,AAssetManager *mgr) {
     char *buffer;
     AAsset *asset = AAssetManager_open(mgr, path, AASSET_MODE_UNKNOWN);
@@ -36,3 +37,15 @@ char *AssetFun::openTextFile(const char *path,AAssetManager *mgr) {
     buffer[length] = '\0';
     return buffer;
 }
+
+unsigned char *AssetFun::loadImageToMemory(const char *filename, AAssetManager *mgr, int* len) {
+    if (mgr == NULL) {
+        LOGE(TAG_ASSET,"pAssetManager is null!");
+        return NULL;
+    }
+    AAsset *pAsset = AAssetManager_open(mgr, filename, AASSET_MODE_UNKNOWN);
+    *len = AAsset_getLength(pAsset);
+    auto *fileData = (unsigned char *) AAsset_getBuffer(pAsset);
+    return fileData;
+}
+

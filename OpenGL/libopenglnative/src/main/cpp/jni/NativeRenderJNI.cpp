@@ -5,7 +5,6 @@
 #include <iosfwd>
 #include "learnopengl_assigns/AssignFactory.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif

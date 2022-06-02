@@ -26,11 +26,11 @@ public class DefaultGLSurfaceView extends GLSurfaceView {
         // Assign our renderer.
 //        glSurfaceView.setRenderer(new BaseRender(new DefaultRenderES3_0()));
 //        baseWrapRender = new BaseWrapRender(new NativeRender("hello_triangle_vertex_shader.glsl","hello_triangle_fragment_shader.glsl"));
-        baseWrapRender = new BaseWrapRender(new NativeRenderV2(IAssignType.LearnOpenGL.ASSIGN_LEARN_OPENGL_SHADER_UNIFORM_SHADER));
+        baseWrapRender = new BaseWrapRender(new NativeRenderV2(IAssignType.LearnOpenGL.ASSIGN_LEARN_OPENGL_TEXTURE_DEMO));
         setRenderer(baseWrapRender);
         //RENDERMODE_CONTINUOUSLY 1s 60帧
 //        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
-        setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
+        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }
 
     @Override

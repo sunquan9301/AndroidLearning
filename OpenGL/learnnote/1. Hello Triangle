@@ -26,3 +26,24 @@
         GL_DYNAMIC_DRAW：数据会被改变很多。
         GL_STREAM_DRAW ：数据每次绘制时都会改变。
 
+4. 纹理(texture)
+    坐标：[0,1]。texture和sampling
+    环绕方式:
+        GL_REPEAT:对纹理的默认行为。重复纹理图像。
+        GL_MIRRORED_REPEAT:和GL_REPEAT一样，但每次重复图片是镜像放置的。
+        GL_CLAMP_TO_EDGE:纹理坐标会被约束在0到1之间，超出的部分会重复纹理坐标的边缘，产生一种边缘被拉伸的效果。
+        GL_CLAMP_TO_BORDER:超出的坐标为用户指定的边缘颜色。
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+    纹理坐标不依赖于分辨率(Resolution)，它可以是任意浮点值
+    纹理过滤
+        GL_NEAREST：产生了颗粒状的图案
+        GL_LINEAR：产生更平滑的图案
+        当进行放大(Magnify)和缩小(Minify)操作的时候可以设置纹理过滤的选项
+    多级渐进纹理
+        glGenerateMipmaps
+        GL_NEAREST_MIPMAP_NEAREST   使用最邻近的多级渐远纹理来匹配像素大小，并使用邻近插值进行纹理采样
+        GL_LINEAR_MIPMAP_NEAREST	使用最邻近的多级渐远纹理级别，并使用线性插值进行采样
+        GL_NEAREST_MIPMAP_LINEAR	在两个最匹配像素大小的多级渐远纹理之间进行线性插值，使用邻近插值进行采样
+        GL_LINEAR_MIPMAP_LINEAR	    在两个邻近的多级渐远纹理之间使用线性插值，并使用线性插值进行采样
+
