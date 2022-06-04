@@ -6,7 +6,7 @@
 #define OPENGL_GLUTILS_H
 
 #include "common/LogFun.h"
-#include <GLES3/gl3.h>
+#include <GLES3/gl32.h>
 #include <GLES3/gl3ext.h>
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
@@ -33,6 +33,7 @@ public:
 
     static GLuint createProgram(const char** vertexSource, const char** fragmentSource);
     static GLuint loaderShader(GLenum type, const char** source);
+    static GLuint loaderTexture2D(unsigned char* textureMemData, int textureMemDataLen,GLuint colorFormat);
     static void checkGlError(const char* pGLOperation);
     /**
      * public方法

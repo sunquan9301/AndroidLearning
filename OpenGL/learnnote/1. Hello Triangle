@@ -46,4 +46,6 @@
         GL_LINEAR_MIPMAP_NEAREST	使用最邻近的多级渐远纹理级别，并使用线性插值进行采样
         GL_NEAREST_MIPMAP_LINEAR	在两个最匹配像素大小的多级渐远纹理之间进行线性插值，使用邻近插值进行采样
         GL_LINEAR_MIPMAP_LINEAR	    在两个邻近的多级渐远纹理之间使用线性插值，并使用线性插值进行采样
+    使用glUniform1i，我们可以给纹理采样器分配一个位置值
+    纹理上下颠倒：因为opengl图片的坐标原点是左下角。图片的原点是从左上角开始的。
 

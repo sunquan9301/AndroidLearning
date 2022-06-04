@@ -12,9 +12,12 @@ public:
     virtual void onDraw();
     virtual void onSurfaceCreated();
     virtual void onInit(JNIEnv *env,jobject asset_manager,const string &vertexShaderAssetName,const string &fragmentShaderAssetName);
-    GLuint VB0,VEO,texture;
+    GLuint VBO,EBO,texture,textureId1;
     int textureMemoryDataLen;
     unsigned char* textureMemoryData;
+
+    int textureMemoryDataLen1;
+    unsigned char* textureMemoryData1;
 };
 
 

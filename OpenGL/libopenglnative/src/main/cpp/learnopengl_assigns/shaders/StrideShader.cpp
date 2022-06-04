@@ -25,9 +25,9 @@ void StrideShader::onSurfaceCreated() {
     glUseProgram(this->m_ProgramObj);
 
     //VBO
-//    GLuint VB0;
-//    glGenBuffers(1,&VB0);
-//    glBindBuffer(GL_ARRAY_BUFFER,VB0);
+//    GLuint VBO;
+//    glGenBuffers(1,&VBO);
+//    glBindBuffer(GL_ARRAY_BUFFER,VBO);
 //    glBufferData(GL_ARRAY_BUFFER,sizeof(vertices),vertices,GL_STATIC_DRAW);
 //    glVertexAttribPointer(DEFAULT_POS_LOCATION,3,GL_FLOAT,GL_FALSE,6* sizeof(float), nullptr);
 //    glEnableVertexAttribArray(DEFAULT_POS_LOCATION);

@@ -3,14 +3,28 @@
 //
 
 #include "TextureDemo.h"
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
 static GLfloat vertics[] = {
         // positions          // colors           // texture coords
         0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
         -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
         -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left
+};
+
+static GLfloat vertics1[] = {
+        // positions          // colors           // texture coords
+        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   0.6f, 0.6f, // top right
+        0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   0.6f, 0.4f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.4f, 0.4f, // bottom left
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.4f, 0.6f  // top left
+};
+
+static GLfloat vertics2[] = {
+        // positions          // colors           // texture coords
+        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   2.0f, 2.0f, // top right
+        0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   2.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 2.0f  // top left
 };
 
 static GLuint indices[] = {
@@ -27,11 +41,11 @@ void TextureDemo::onSurfaceCreated() {
     }
     glUseProgram(this->m_ProgramObj);
 
-    glGenBuffers(1,&VB0);
-    glGenBuffers(1,&VEO);
-    glBindBuffer(GL_ARRAY_BUFFER,VB0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,VEO);
-    glBufferData(GL_ARRAY_BUFFER,sizeof(vertics),vertics,GL_STATIC_DRAW);
+    glGenBuffers(1,&VBO);
+    glGenBuffers(1,&EBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ARRAY_BUFFER,sizeof(vertics2),vertics2,GL_STATIC_DRAW);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(indices),indices,GL_STATIC_DRAW);
 
 
@@ -47,36 +61,26 @@ void TextureDemo::onSurfaceCreated() {
     //GL_ELEMENT_ARRAY_BUFFER不能释放
 //    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-
-//bind texture
-    glGenTextures(1,&texture);
-    glBindTexture(GL_TEXTURE_2D,texture);
-    // set the texture wrapping parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    int width,height,channel;
-    unsigned char *data = stbi_load_from_memory(this->textureMemoryData,
-                                                        textureMemoryDataLen, &width, &height,
-                                                        &channel, 0);
-    if(data){
-        LOGE(TAG_TEXTURE_DEMO,"load texture image succ w = %d,h = %d,channel=%d",width,height,channel);
-        glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }else{
-        LOGE(TAG_TEXTURE_DEMO,"could not load texture image");
+    texture = GLUtils::loaderTexture2D(textureMemoryData, textureMemoryDataLen,GL_RGB);
+    textureId1 = GLUtils::loaderTexture2D(textureMemoryData1, textureMemoryDataLen1,GL_RGBA);
+    if (texture == 0 || textureId1 == 0) {
+        LOGE(TAG_TEXTURE_DEMO, "loaderTexture2D error");
     }
-    stbi_image_free(data);
+
+    glUniform1i(glGetUniformLocation(m_ProgramObj,"texture"),0);
+    glUniform1i(glGetUniformLocation(m_ProgramObj,"texture1"),1);
+
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
 void TextureDemo::onDraw() {
     LOGD(TAG_TEXTURE_DEMO,"onDraw start");
     glClear(GL_COLOR_BUFFER_BIT);
+    glUseProgram(this->m_ProgramObj);
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, textureId1);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 }
 
@@ -94,6 +98,14 @@ void TextureDemo::onInit(JNIEnv *env, jobject asset_manager, const string &verte
     }else{
         LOGD(TAG_TEXTURE_DEMO,"loadImageToMemory failure");
     }
+
+    this->textureMemoryData1 = AssetFun::loadImageToMemory("textures/texture_awesomeface.png", pManager,
+                                                          &textureMemoryDataLen1);
+    if (textureMemoryData1){
+        LOGD(TAG_TEXTURE_DEMO,"loadImageToMemory succ len = %d",textureMemoryDataLen1);
+    }else{
+        LOGD(TAG_TEXTURE_DEMO,"loadImageToMemory failure");
+    }
 }
 
 void TextureDemo::onDestroy() {
@@ -102,4 +114,12 @@ void TextureDemo::onDestroy() {
         delete[] textureMemoryData;
         textureMemoryData = nullptr;
     }
+    if(this->textureMemoryData1!= nullptr){
+        delete[] textureMemoryData1;
+        textureMemoryData1 = nullptr;
+    }
+    glDeleteBuffers(1, &VBO);
+    glDeleteBuffers(1, &EBO);
+    glDeleteTextures(1, &texture);
+    glDeleteTextures(1, &textureId1);
 }
