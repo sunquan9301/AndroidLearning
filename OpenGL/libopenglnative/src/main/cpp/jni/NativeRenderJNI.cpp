@@ -41,7 +41,7 @@ Java_com_scott_nativecode_NativeRenderJni_initV2(JNIEnv *env, jobject thiz, jobj
 
 JNIEXPORT void JNICALL
 Java_com_scott_nativecode_NativeRenderJni_onDestroy(JNIEnv *env, jobject thiz) {
-    AssignFactory::onDestroyInstance();
+    AssignFactory::onDestroyDemoResources();
 }
 
 #ifdef __cplusplus

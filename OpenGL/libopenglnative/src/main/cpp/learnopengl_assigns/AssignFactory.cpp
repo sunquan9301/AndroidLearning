@@ -80,11 +80,9 @@ void AssignFactory::createAssignDemoV2(JNIEnv *env, jobject asset_manager, int t
     this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_shaders_simpleshader_vertex_shader.glsl","learnopengl_shaders_simpleshader_fragment_shader.glsl");
 }
 
-void AssignFactory::onDestroyInstance() {
+void AssignFactory::onDestroyDemoResources() {
     if(AssignFactory::m_Instance){
         AssignFactory::m_Instance->onDestroy();
-        delete AssignFactory::m_Instance;
-        AssignFactory::m_Instance = nullptr;
     }
 }
 

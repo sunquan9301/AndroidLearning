@@ -29,10 +29,7 @@ public class DefaultGLSurfaceView extends GLSurfaceView {
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }
 
-
-    @Override
-    public void surfaceDestroyed(SurfaceHolder holder) {
-        super.surfaceDestroyed(holder);
+    public void onDestroy(){
         baseWrapRender.onSurfaceDestroyed();
     }
 }

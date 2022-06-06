@@ -66,7 +66,7 @@ public:
     }
 
     static AssignFactory *getInstance();
-    static void onDestroyInstance();
+    static void onDestroyDemoResources();
 
 private:
     static AssignFactory *m_Instance;
