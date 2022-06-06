@@ -24,4 +24,7 @@
 //texture
 #define ASSIGN_LEARN_OPENGL_TEXTURE_DEMO 3001
 
+//transform
+#define ASSIGN_LEARN_OPENGL_TRANSFORM_DEMO 4001
+
 

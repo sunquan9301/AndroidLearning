@@ -9,12 +9,8 @@ static GLfloat vertices[] = {
         0.5f, -0.5f, 0.0f // 第三个点（x, y, z）
 };
 
-void RenderTriangle::onDestroy() {
-    GLAbsRender::onDestroy();
-}
-
 void RenderTriangle::onSurfaceCreated() {
-    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(1.0f, 0.5f, 0.0f, 1.0f);
     this->m_ProgramObj = GLUtils::createProgram(&this->VERTEX_SHADER, &this->FRAGMENT_SHADER);
     // 设置清除颜色
     if (!this->m_ProgramObj) {
@@ -24,6 +20,7 @@ void RenderTriangle::onSurfaceCreated() {
     glUseProgram(this->m_ProgramObj);
     glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,0,vertices);
     glEnableVertexAttribArray(0);
+
 }
 
 void RenderTriangle::onDraw() {

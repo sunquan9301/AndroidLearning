@@ -9,12 +9,8 @@
 
 class RenderTriangle : public GLAbsRender{
 public:
-    RenderTriangle() = default;
-
-    virtual ~RenderTriangle() = default;
     virtual void onDraw();
     virtual void onSurfaceCreated();
-    virtual void onDestroy();
 };
 
 

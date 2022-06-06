@@ -19,6 +19,7 @@ static GLfloat vertics1[] = {
         -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.4f, 0.6f  // top left
 };
 
+//learn opengl texture assign 3
 static GLfloat vertics2[] = {
         // positions          // colors           // texture coords
         0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   2.0f, 2.0f, // top right

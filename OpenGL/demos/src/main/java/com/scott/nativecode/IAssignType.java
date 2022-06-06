@@ -18,5 +18,8 @@ public class IAssignType {
         //texture
         public static final int ASSIGN_LEARN_OPENGL_TEXTURE_DEMO = 3001;
 
+        //transform
+        public static final int ASSIGN_LEARN_OPENGL_TRANSFORM_DEMO = 4001;
+
     }
 }

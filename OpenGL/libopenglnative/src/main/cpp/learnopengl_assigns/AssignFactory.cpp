@@ -39,6 +39,13 @@ void AssignFactory::createAssignDemo(int type) {
 }
 
 void AssignFactory::createAssignDemoV2(JNIEnv *env, jobject asset_manager, int type) {
+    if(type == ASSIGN_LEARN_OPENGL_TRIANGLE_SIMPLE){
+        this->p_AssignDemo = new RenderTriangle();
+        this->p_AssignDemo->onInit(env,asset_manager,"hello_triangle_vertex_shader.glsl","hello_triangle_fragment_shader.glsl");
+        return;
+    }
+
+
     if (type == ASSIGN_LEARN_OPENGL_SHADER_SIMPLE_SHADER) {
         this->p_AssignDemo = new SimpleShader();
         this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_shaders_simpleshader_vertex_shader.glsl","learnopengl_shaders_simpleshader_fragment_shader.glsl");
@@ -62,6 +69,11 @@ void AssignFactory::createAssignDemoV2(JNIEnv *env, jobject asset_manager, int t
     if (type == ASSIGN_LEARN_OPENGL_TEXTURE_DEMO) {
         this->p_AssignDemo = new TextureDemo();
         this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_texture_vertex.glsl","learnopengl_texture_fragment.glsl");
+        return;
+    }
+    if (type == ASSIGN_LEARN_OPENGL_TRANSFORM_DEMO) {
+        this->p_AssignDemo = new TransformDemo();
+        this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_shaders_transform_vertex_shader.glsl","learnopengl_shaders_transform_fragment_shader.glsl");
         return;
     }
     this->p_AssignDemo = new SimpleShader();

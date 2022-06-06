@@ -18,9 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".particle.ParticleActivity"></activity>
-        <activity android:name=".particle.SkyboxActivity">
-
-        </activity>
+        <activity android:name=".particle.SkyboxActivity"></activity>
+        <activity android:name=".OpenGLActivity"></activity>
     </application>
 
 </manifest>

@@ -12,26 +12,23 @@ import com.scott.nativecode.IAssignType;
 
 public class DefaultGLSurfaceView extends GLSurfaceView {
     BaseWrapRender baseWrapRender;
-    public DefaultGLSurfaceView(Context context) {
-        this(context,null);
-    }
-
     public DefaultGLSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
     }
 
-    private void init() {
+    public DefaultGLSurfaceView(Context context,int demoType) {
+        this(context,null);
         setEGLContextClientVersion(3);
         // Assign our renderer.
 //        glSurfaceView.setRenderer(new BaseRender(new DefaultRenderES3_0()));
 //        baseWrapRender = new BaseWrapRender(new NativeRender("hello_triangle_vertex_shader.glsl","hello_triangle_fragment_shader.glsl"));
-        baseWrapRender = new BaseWrapRender(new NativeRenderV2(IAssignType.LearnOpenGL.ASSIGN_LEARN_OPENGL_TEXTURE_DEMO));
+        baseWrapRender = new BaseWrapRender(new NativeRenderV2(demoType));
         setRenderer(baseWrapRender);
         //RENDERMODE_CONTINUOUSLY 1s 60帧
 //        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }
+
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {

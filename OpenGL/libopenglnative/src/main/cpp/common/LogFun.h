@@ -33,6 +33,7 @@
 #define TAG_SHADERS_STRIDE_SHADER "StrideShader"
 // learn opengl -> texture TAG
 #define TAG_TEXTURE_DEMO "TextureDemo"
+#define TAG_TRANSFORM_DEMO "TransformDemo"
 
 
 

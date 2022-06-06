@@ -21,6 +21,7 @@
 #include "learnopengl_assigns/shaders/UniformShader.h"
 #include "learnopengl_assigns/shaders/StrideShader.h"
 #include "learnopengl_assigns/textures/TextureDemo.h"
+#include "learnopengl_assigns/transform/TransformDemo.h"
 
 class AssignFactory {
 public:
