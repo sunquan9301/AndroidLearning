@@ -50,6 +50,8 @@ GLuint GLUtils::createProgram(const char **vertexSource, const char **fragmentSo
     return programId;
 }
 
+//GLuint为open GL定义的数据类型即无符号整型
+//type有2种：GL_VERTEX_SHADER 和 GL_FRAGMENT_SHADER
 GLuint GLUtils::loaderShader(GLenum type, const char **source) {
     GLuint shaderId;
     shaderId = glCreateShader(type);

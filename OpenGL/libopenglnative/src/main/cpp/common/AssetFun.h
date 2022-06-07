@@ -1,5 +1,8 @@
 //
 // Created by 孙全 on 2022/5/17.
+// @author sunquan
+// @Email sunquan9301@163.com
+// @Description 传入path。返回char*
 //
 
 #pragma once

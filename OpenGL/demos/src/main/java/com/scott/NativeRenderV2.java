@@ -9,6 +9,7 @@ import com.scott.nativecode.NativeRenderJni;
 
 /**
  * 1. 相比较NativeRender，V2不传入vertexShaderPath和fragmentShaderPath
+ * 2. V2会根据type在cpp层面自己定义ShaderPath；即 ShaderPath数据具体的Demo类
  */
 public class NativeRenderV2 implements IRender {
     NativeRenderJni nativeRenderJni;

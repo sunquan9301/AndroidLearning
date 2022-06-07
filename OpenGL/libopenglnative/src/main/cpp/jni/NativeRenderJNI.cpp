@@ -4,7 +4,13 @@
 #include <cstdlib>
 #include <iosfwd>
 #include "learnopengl_assigns/AssignFactory.h"
-
+/**
+ * @author sunquan
+ * @Email sunquan9301@163.com
+ * @Description
+ * 1. NativeRenderJNI.cpp对应NativeRenderJNI.java类
+ * 2. 包含了AssignFactory工厂用于根据assignType创建不同的Demo类
+ */
 #ifdef __cplusplus
 extern "C" {
 #endif

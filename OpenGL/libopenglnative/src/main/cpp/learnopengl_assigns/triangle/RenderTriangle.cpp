@@ -18,8 +18,9 @@ void RenderTriangle::onSurfaceCreated() {
         return;
     }
     glUseProgram(this->m_ProgramObj);
-    glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,0,vertices);
-    glEnableVertexAttribArray(0);
+    //index代表pos_location
+    glVertexAttribPointer(DEFAULT_POS_LOCATION,3,GL_FLOAT,GL_FALSE,0,vertices);
+    glEnableVertexAttribArray(DEFAULT_POS_LOCATION);
 
 }
 
