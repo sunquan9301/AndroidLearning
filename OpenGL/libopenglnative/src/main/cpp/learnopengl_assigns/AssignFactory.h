@@ -55,6 +55,13 @@ public:
         }
         p_AssignDemo->onSurfaceChange(width,height);
     }
+    void onOptClick(int opt_type){
+        if(!p_AssignDemo){
+            LOGE(TAG_ASSIGN_FACTORY,"p_AssignDemo is null");
+            return;
+        }
+        p_AssignDemo->onOptClick(opt_type);
+    }
     void onDestroy(){
         if(!p_AssignDemo){
             LOGE(TAG_ASSIGN_FACTORY,"p_AssignDemo is null");
@@ -67,6 +74,8 @@ public:
 
     static AssignFactory *getInstance();
     static void onDestroyDemoResources();
+
+
 
 private:
     static AssignFactory *m_Instance;

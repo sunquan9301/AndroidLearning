@@ -2,25 +2,23 @@ package com.scott.opengl;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
-import com.scott.nativecode.IAssignType;
+import com.scott.nativecode.IType;
 
 public class MainActivity extends AppCompatActivity {
 
     private int[] demos = new int[]{
-            IAssignType.LearnOpenGL.ASSIGN_LEARN_OPENGL_TRIANGLE_SIMPLE
+            IType.AssignType.ASSIGN_LEARN_OPENGL_TRIANGLE_SIMPLE
     };
     private String[] btnTitles = new String[]{
             "绘制一个三角形"

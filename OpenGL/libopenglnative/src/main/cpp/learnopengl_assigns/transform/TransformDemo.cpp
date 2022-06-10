@@ -3,9 +3,6 @@
 //
 
 #include "TransformDemo.h"
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 static GLfloat vertics[] = {
         // positions          // colors           // texture coords
@@ -22,8 +19,13 @@ static GLuint indices[] = {
 };
 
 void TransformDemo::onDraw() {
-    LOGD(TAG_TEXTURE_DEMO,"onDraw start");
+    LOGD(TAG_TEXTURE_DEMO, "onDraw start");
     glClear(GL_COLOR_BUFFER_BIT);
+    glUseProgram(m_ProgramObj);
+    glm::mat4 value = projection * view * model;
+    glUniformMatrix4fv(glGetUniformLocation(m_ProgramObj, "transform"), 1, GL_FALSE,
+                       glm::value_ptr(value));
+
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 }
 
@@ -62,10 +64,7 @@ void TransformDemo::onSurfaceCreated() {
         LOGE(TAG_TEXTURE_DEMO, "loaderTexture2D error");
     }
 
-    glm::mat4 model = glm::mat4(1.0f);
 //    glm::mat4 rotate = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f,0.0f,1.0f));
-    glUniformMatrix4fv(glGetUniformLocation(m_ProgramObj,"transform"),1,GL_FALSE,glm::value_ptr(model));
-
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 }
@@ -104,4 +103,20 @@ void TransformDemo::onInit(JNIEnv *env, jobject asset_manager, const string &ver
 //    }else{
 //        LOGD(TAG_TEXTURE_DEMO,"loadImageToMemory failure");
 //    }
+}
+
+void TransformDemo::onOptClick(int optType) {
+    if(optType == OPT_RIGHT){
+        model = glm::translate(model,glm::vec3(0.1f,0.0f,0.0f));
+    }else if(optType == OPT_LEFT){
+        model = glm::translate(model,glm::vec3(-0.1f,0.0f,0.0f));
+    }else if(optType == OPT_UP){
+        model = glm::translate(model,glm::vec3(0.0f,0.1f,0.0f));
+    }else if(optType == OPT_DOWN){
+        model = glm::translate(model,glm::vec3(0.0f,-0.1f,0.0f));
+    }else if(optType == OPT_ROTATE_RIGHT){
+        model = glm::rotate(model,glm::radians(-5.0f), glm::vec3(0.0f,0.0f,1.0f));
+    }else if(optType == OPT_ROTATE_LEFT){
+        model = glm::rotate(model,glm::radians(5.0f), glm::vec3(0.0f,0.0f,1.0f));
+    }
 }

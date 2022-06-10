@@ -1,7 +1,7 @@
 package com.scott.nativecode;
 
-public class IAssignType {
-    public static class LearnOpenGL{
+public class IType {
+    public static class AssignType {
         //triangle
         public static final int ASSIGN_LEARN_OPENGL_TRIANGLE_SIMPLE = 1001;
         public static final int ASSIGN_LEARN_OPENGL_TRIANGLE_SIMPLE_VBO = 1002;
@@ -20,6 +20,16 @@ public class IAssignType {
 
         //transform
         public static final int ASSIGN_LEARN_OPENGL_TRANSFORM_DEMO = 4001;
+
+    }
+
+    public static class OptType{
+        public static final int OPT_UP = 9001;
+        public static final int OPT_DOWN = 9002;
+        public static final int OPT_LEFT = 9003;
+        public static final int OPT_RIGHT = 9004;
+        public static final int OPT_ROTATE_RIGHT = 9005;
+        public static final int OPT_ROTATE_LEFT = 9006;
 
     }
 }

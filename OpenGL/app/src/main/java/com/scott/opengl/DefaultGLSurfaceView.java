@@ -3,12 +3,9 @@ package com.scott.opengl;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
-import android.view.SurfaceHolder;
 
-import com.scott.NativeRender;
 import com.scott.NativeRenderV2;
 import com.scott.basic.renders.BaseWrapRender;
-import com.scott.nativecode.IAssignType;
 
 public class DefaultGLSurfaceView extends GLSurfaceView {
     private BaseWrapRender baseWrapRender;
@@ -26,9 +23,9 @@ public class DefaultGLSurfaceView extends GLSurfaceView {
         baseWrapRender = new BaseWrapRender(new NativeRenderV2(demoType));
         setRenderer(baseWrapRender);
         //RENDERMODE_CONTINUOUSLY 1s 60帧
-//        setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
+        setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
         // surface is created, or when requestRender is called.
-        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+//        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }
 
     public void onDestroy(){

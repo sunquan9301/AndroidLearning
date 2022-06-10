@@ -13,6 +13,7 @@
 #include "common/AssetFun.h"
 #include <GLES3/gl3.h>
 #include "common/GLUtils.h"
+#include "common/OptType.h"
 static GLuint DEFAULT_POS_LOCATION = 0;
 static GLuint DEFAULT_COLOR_LOCATION = 1;
 static GLuint DEFAULT_TEXTURE_LOCATION = 2;
@@ -29,12 +30,12 @@ public:
     virtual ~GLAbsRender() {}
     virtual void onInit(JNIEnv *env,jobject asset_manager,const string &vertexShaderAssetName,const string &fragmentShaderAssetName) {
         GLUtils::printGLInfo();
-        LOGI(TAG_RENDER_TRIANGLE,"vertexShaderAssetName = %s, fragmentShaderAssetName = %s",vertexShaderAssetName.c_str(),fragmentShaderAssetName.c_str());
+        LOGI(TAG_ABS_RENDER,"vertexShaderAssetName = %s, fragmentShaderAssetName = %s",vertexShaderAssetName.c_str(),fragmentShaderAssetName.c_str());
         AAssetManager *pManager = AAssetManager_fromJava(env, asset_manager);
         this->VERTEX_SHADER = AssetFun::readAssetFile(vertexShaderAssetName.c_str(), pManager);
         this->FRAGMENT_SHADER = AssetFun::readAssetFile(fragmentShaderAssetName.c_str(), pManager);
-        LOGI(TAG_RENDER_TRIANGLE,"vertexShaderContent = %s",this->VERTEX_SHADER);
-        LOGI(TAG_RENDER_TRIANGLE,"fragmentShaderContent = %s",this->FRAGMENT_SHADER);
+        LOGI(TAG_ABS_RENDER,"vertexShaderContent = %s",this->VERTEX_SHADER);
+        LOGI(TAG_ABS_RENDER,"fragmentShaderContent = %s",this->FRAGMENT_SHADER);
     }
     virtual void onDraw() = 0;
     virtual void onSurfaceCreated() = 0;
@@ -58,6 +59,11 @@ public:
             delete[] FRAGMENT_SHADER;
             FRAGMENT_SHADER = nullptr;
         }
+    }
+
+    virtual void onOptClick(int optType){
+        LOGI(TAG_ABS_RENDER,"optType = %d",optType);
+
     }
 
 protected:

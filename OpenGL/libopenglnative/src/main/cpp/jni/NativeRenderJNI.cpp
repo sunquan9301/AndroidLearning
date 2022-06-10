@@ -46,9 +46,17 @@ Java_com_scott_nativecode_NativeRenderJni_initV2(JNIEnv *env, jobject thiz, jobj
 }
 
 JNIEXPORT void JNICALL
+Java_com_scott_nativecode_NativeRenderJni_onOptClick(JNIEnv *env, jobject thiz, jint opt_type) {
+    // TODO: implement onOptClick()
+    AssignFactory::getInstance()->onOptClick(opt_type);
+}
+
+
+JNIEXPORT void JNICALL
 Java_com_scott_nativecode_NativeRenderJni_onDestroy(JNIEnv *env, jobject thiz) {
     AssignFactory::onDestroyDemoResources();
 }
+
 
 #ifdef __cplusplus
 }

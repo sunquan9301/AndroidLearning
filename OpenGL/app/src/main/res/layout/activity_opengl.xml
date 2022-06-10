@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_red_dark"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_opts"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingRight="4dp"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/btn_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="42dp"
+            android:layout_marginBottom="30dp"
+            android:background="@android:color/darker_gray"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="上"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/btn_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="42dp"
+            android:background="@android:color/darker_gray"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="下"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/btn_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="12dp"
+            android:background="@android:color/darker_gray"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="左"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/btn_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="84dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:color/darker_gray"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="右"
+            android:textColor="@android:color/black" />
+
+
+        <TextView
+            android:id="@+id/btn_rotate_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="12dp"
+            android:background="@android:color/darker_gray"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="顺时针"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/btn_rotate_left"
+            android:layout_toStartOf="@id/btn_rotate_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="2dp"
+            android:background="@android:color/darker_gray"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="逆时针"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+</RelativeLayout>
