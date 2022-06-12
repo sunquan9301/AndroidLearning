@@ -106,6 +106,7 @@ void TransformDemo::onInit(JNIEnv *env, jobject asset_manager, const string &ver
 }
 
 void TransformDemo::onOptClick(int optType) {
+    // model矩阵，是指把模型摆在什么地方，因此你会看到随着案件，箱子会上下左右移动，并沿着z轴方向旋转。
     if(optType == OPT_RIGHT){
         model = glm::translate(model,glm::vec3(0.1f,0.0f,0.0f));
     }else if(optType == OPT_LEFT){
@@ -115,7 +116,8 @@ void TransformDemo::onOptClick(int optType) {
     }else if(optType == OPT_DOWN){
         model = glm::translate(model,glm::vec3(0.0f,-0.1f,0.0f));
     }else if(optType == OPT_ROTATE_RIGHT){
-        model = glm::rotate(model,glm::radians(-5.0f), glm::vec3(0.0f,0.0f,1.0f));
+//        model = glm::rotate(model,glm::radians(-5.0f), glm::vec3(0.0f,0.0f,1.0f));
+        model = glm::rotate(model,glm::radians(-5.0f), glm::vec3(1.0f,0.0f,0.0f));
     }else if(optType == OPT_ROTATE_LEFT){
         model = glm::rotate(model,glm::radians(5.0f), glm::vec3(0.0f,0.0f,1.0f));
     }

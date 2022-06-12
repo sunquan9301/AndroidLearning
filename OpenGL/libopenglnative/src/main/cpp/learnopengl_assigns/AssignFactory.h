@@ -22,6 +22,7 @@
 #include "learnopengl_assigns/shaders/StrideShader.h"
 #include "learnopengl_assigns/textures/TextureDemo.h"
 #include "learnopengl_assigns/transform/TransformDemo.h"
+#include "learnopengl_assigns/transform/PerspactiveTransformDemo.h"
 
 class AssignFactory {
 public:

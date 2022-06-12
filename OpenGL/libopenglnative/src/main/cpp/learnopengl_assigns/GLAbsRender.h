@@ -14,6 +14,9 @@
 #include <GLES3/gl3.h>
 #include "common/GLUtils.h"
 #include "common/OptType.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 static GLuint DEFAULT_POS_LOCATION = 0;
 static GLuint DEFAULT_COLOR_LOCATION = 1;
 static GLuint DEFAULT_TEXTURE_LOCATION = 2;

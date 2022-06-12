@@ -20,6 +20,7 @@ public class IType {
 
         //transform
         public static final int ASSIGN_LEARN_OPENGL_TRANSFORM_DEMO = 4001;
+        public static final int ASSIGN_LEARN_OPENGL_PERSPECTIVE_TRANSFORM_DEMO = 4002;
 
     }
 

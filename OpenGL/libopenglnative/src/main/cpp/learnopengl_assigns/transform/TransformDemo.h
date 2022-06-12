@@ -5,9 +5,6 @@
 #ifndef OPENGL_TRANSFORMDEMO_H
 #define OPENGL_TRANSFORMDEMO_H
 #include "learnopengl_assigns/GLAbsRender.h"
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 class TransformDemo : public GLAbsRender {
 public:
