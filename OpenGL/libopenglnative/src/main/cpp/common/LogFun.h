@@ -35,6 +35,7 @@
 #define TAG_TEXTURE_DEMO "TextureDemo"
 #define TAG_TRANSFORM_DEMO "TransformDemo"
 #define TAG_PERSPACTIVE_TRANSFORM_DEMO "PerspactiveTransformDemo"
+#define TAG_TEXTURE_TRANSFORM_DEMO "TextureTransformDemo"
 
 
 

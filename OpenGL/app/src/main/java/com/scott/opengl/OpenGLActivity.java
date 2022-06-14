@@ -35,7 +35,7 @@ public class OpenGLActivity extends AppCompatActivity {
 
     private void initViews() {
         int demoType = getIntent().getIntExtra("demoType", IType.AssignType.ASSIGN_LEARN_OPENGL_TRIANGLE_SIMPLE);
-        glSurfaceView = new DefaultGLSurfaceView(this, demoType);
+        glSurfaceView = new DefaultGLSurfaceView(this, IType.AssignType.ASSIGN_LEARN_OPENGL_TEXTURE_TRANSFORM_DEMO);
         container = findViewById(R.id.rl_container);
         container.addView(glSurfaceView);
         btnOpts = findViewById(R.id.rl_opts);

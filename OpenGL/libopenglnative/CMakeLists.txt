@@ -56,6 +56,7 @@ add_library(openglnative SHARED
         # transform
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/transform/TransformDemo.cpp
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/transform/PerspactiveTransformDemo.cpp
+        ${PATH_TO_CODE_CORE}/learnopengl_assigns/transform/TextureTransformDemo.cpp
 
         ${PATH_TO_CODE_CORE}/common/TypeUtil.cpp
         ${PATH_TO_CODE_CORE}/common/AssetFun.cpp

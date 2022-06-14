@@ -23,6 +23,7 @@
 #include "learnopengl_assigns/textures/TextureDemo.h"
 #include "learnopengl_assigns/transform/TransformDemo.h"
 #include "learnopengl_assigns/transform/PerspactiveTransformDemo.h"
+#include "learnopengl_assigns/transform/TextureTransformDemo.h"
 
 class AssignFactory {
 public:
