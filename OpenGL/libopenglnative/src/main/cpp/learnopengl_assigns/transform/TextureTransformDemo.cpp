@@ -134,7 +134,6 @@ void TextureTransformDemo::onSurfaceCreated() {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     projection = glm::perspective(glm::radians(45.0f),0.75f,0.1f,100.0f);
     view = glm::translate(view,-1.0f*viewEye);
-    view = glm::rotate(view,glm::radians(-rotateEye),glm::vec3(0.0f,1.0f,0.0f));
 //    model = glm::rotate(model,glm::radians(-45.0f),glm::vec3(1.0f,1.0f,0.0f));
 //    view = glm::translate(view,glm::vec3(0.0f,0.0f,-10.0f));
 }

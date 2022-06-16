@@ -8,6 +8,7 @@ include_directories(${PATH_TO_CODE_CORE}/include/libimage)
 include_directories(${PATH_TO_CODE_CORE}/include/glm)
 include_directories(${PATH_TO_CODE_CORE}/include/)
 include_directories(${PATH_TO_CODE_CORE}/common/)
+include_directories(${PATH_TO_CODE_CORE}/objects/)
 include_directories(${PATH_TO_CODE_CORE}/jni/)
 include_directories(${PATH_TO_CODE_CORE}/)
 
@@ -57,6 +58,10 @@ add_library(openglnative SHARED
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/transform/TransformDemo.cpp
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/transform/PerspactiveTransformDemo.cpp
         ${PATH_TO_CODE_CORE}/learnopengl_assigns/transform/TextureTransformDemo.cpp
+
+        # lighting
+        ${PATH_TO_CODE_CORE}/learnopengl_assigns/lighting/SimpleColorDemo.cpp
+        ${PATH_TO_CODE_CORE}/learnopengl_assigns/lighting/BasicColorDemo.cpp
 
         ${PATH_TO_CODE_CORE}/common/TypeUtil.cpp
         ${PATH_TO_CODE_CORE}/common/AssetFun.cpp

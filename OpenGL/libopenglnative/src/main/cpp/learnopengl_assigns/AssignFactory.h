@@ -24,6 +24,8 @@
 #include "learnopengl_assigns/transform/TransformDemo.h"
 #include "learnopengl_assigns/transform/PerspactiveTransformDemo.h"
 #include "learnopengl_assigns/transform/TextureTransformDemo.h"
+#include "learnopengl_assigns/lighting/SimpleColorDemo.h"
+#include "learnopengl_assigns/lighting/BasicColorDemo.h"
 
 class AssignFactory {
 public:

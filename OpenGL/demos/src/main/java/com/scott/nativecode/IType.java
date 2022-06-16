@@ -23,6 +23,10 @@ public class IType {
         public static final int ASSIGN_LEARN_OPENGL_PERSPECTIVE_TRANSFORM_DEMO = 4002;
         public static final int ASSIGN_LEARN_OPENGL_TEXTURE_TRANSFORM_DEMO = 4003;
 
+        //lighting
+        public static final int ASSIGN_LEARN_OPENGL_LIGHTING_SIMPLE_COLOR = 5001;
+        public static final int ASSIGN_LEARN_OPENGL_LIGHTING_BASIC_COLOR = 5002;
+
     }
 
     public static class OptType{

@@ -86,6 +86,17 @@ void AssignFactory::createAssignDemoV2(JNIEnv *env, jobject asset_manager, int t
         this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_texture_transform_vertex_shader.glsl","learnopengl_texture_transform_fragment_shader.glsl");
         return;
     }
+    if (type == ASSIGN_LEARN_OPENGL_LIGHTING_SIMPLE_COLOR) {
+        this->p_AssignDemo = new SimpleColorDemo();
+        this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_texture_transform_vertex_shader.glsl","learnopengl_texture_transform_fragment_shader.glsl");
+        return;
+    }
+    if (type == ASSIGN_LEARN_OPENGL_LIGHTING_BASIC_COLOR) {
+        this->p_AssignDemo = new BasicColorDemo();
+        this->p_AssignDemo->onInit(env,asset_manager,"","");
+        return;
+    }
+
     this->p_AssignDemo = new SimpleShader();
     this->p_AssignDemo->onInit(env,asset_manager,"learnopengl_shaders_simpleshader_vertex_shader.glsl","learnopengl_shaders_simpleshader_fragment_shader.glsl");
 }

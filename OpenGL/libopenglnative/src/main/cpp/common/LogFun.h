@@ -37,6 +37,9 @@
 #define TAG_PERSPACTIVE_TRANSFORM_DEMO "PerspactiveTransformDemo"
 #define TAG_TEXTURE_TRANSFORM_DEMO "TextureTransformDemo"
 
+// lighting
+#define TAG_LIGHTING_SIMPLE_COLOR "SimpleColorDemo"
+
 
 
 #define LOGV(tag,format, ...) __android_log_print(ANDROID_LOG_VERBOSE, tag, format, ##__VA_ARGS__)

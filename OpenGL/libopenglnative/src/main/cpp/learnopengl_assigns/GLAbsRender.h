@@ -20,6 +20,7 @@
 static GLuint DEFAULT_POS_LOCATION = 0;
 static GLuint DEFAULT_COLOR_LOCATION = 1;
 static GLuint DEFAULT_TEXTURE_LOCATION = 2;
+static GLuint DEFAULT_NORMAL_LOCATION = 3;
 class GLAbsRender {
 public:
 
